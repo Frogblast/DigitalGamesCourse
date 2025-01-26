@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c277935980bbc343989197293d0ccaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 10
+  itemToDrop: {fileID: 6351633024175431240, guid: 81df78bdf933b37498359f32fb75bb2d, type: 3}
 --- !u!1 &8507593580094763560
 GameObject:
   m_ObjectHideFlags: 0

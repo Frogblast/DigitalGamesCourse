@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
         {
             inventory.Add(currentInteractableItem.data);
 
-            Debug.Log($"Picked up {currentInteractableItem.data.itemName}. Inventory now contains {inventory.Count} items.");
+            Debug.Log($"Picked up {currentInteractableItem.data.ToString()}. Inventory now contains {inventory.Count} items.");
 
             Destroy(currentInteractableItem.gameObject);
             currentInteractableItem = null;
@@ -36,6 +36,8 @@ public class Inventory : MonoBehaviour
 
     public void DropItem(Vector3 dropPosition)
     {
+        int selectionIndex = 0;
+        Debug.Log(inventory.Count);
         if (inventory.Count == 0)
         {
             Debug.Log("No item to drop.");
@@ -43,10 +45,16 @@ public class Inventory : MonoBehaviour
         }
 
         GameObject droppedItem = Instantiate(genericItemPrefab, dropPosition, Quaternion.identity);
-        ItemBridge newItem = droppedItem.GetComponent<ItemBridge>();
-        newItem.data = inventory[0];
 
-        inventory.RemoveAt(0);
+        ItemBridge newItem = droppedItem.GetComponent<ItemBridge>();
+        if (newItem == null)
+        {
+            newItem = droppedItem.AddComponent<ItemBridge>();
+        }
+
+        newItem.data = inventory[selectionIndex];
+
+        inventory.RemoveAt(selectionIndex);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb9912aef99c4a4cad52d0228e673be, type: 3}
+  m_Script: {fileID: 11500000, guid: 01906ab5e21c3c24dbfaa7b9a8144e2d, type: 3}
   m_Name: Treasure
   m_EditorClassIdentifier: 
   itemName: Treasure
-  description: An amazing treasure!
+  description: An awesome treasure!

@@ -2,14 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This class is used by 
- * Interface is TryPickUpItem() and DropItem(Vector3 dropPosition) (dropPosition is passed from PlayerControls)
+ * This class is used by PlayerControls to handle inventory and looting.
+ * The interface is TryPickUpItem() and DropItem(Vector3 dropPosition) (dropPosition is passed from PlayerControls)
+ * The "genericItemPrefab" is assigned in the inspector in unity. Now it is set to the treasure gameobject
+ * but it would be good to be able to pick up any items, not just the treasure. This could be done by extending the Item scriptable object
+ * so that it holds info on all of the item's components. That way the genericItemPrefab could be a simple empty gameobject which programatically
+ * could be built with new components, where the recipes are the Item within the inventory list. I.e. factory pattern.
  */
 
 public class Inventory : MonoBehaviour
 {
-    private List<ItemData> inventory = new List<ItemData>();
-    private Item currentInteractableItem = null;
+    private List<Item> inventory = new List<Item>();
+    private ItemBridge currentInteractableItem = null;
 
     [SerializeField] private GameObject genericItemPrefab;
 
@@ -39,7 +43,7 @@ public class Inventory : MonoBehaviour
         }
 
         GameObject droppedItem = Instantiate(genericItemPrefab, dropPosition, Quaternion.identity);
-        Item newItem = droppedItem.GetComponent<Item>();
+        ItemBridge newItem = droppedItem.GetComponent<ItemBridge>();
         newItem.data = inventory[0];
 
         inventory.RemoveAt(0);
@@ -47,7 +51,7 @@ public class Inventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Item>(out var item))
+        if (other.TryGetComponent<ItemBridge>(out var item))
         {
             currentInteractableItem = item;
             Debug.Log($"Item in range: {item.data.itemName}");
@@ -56,7 +60,7 @@ public class Inventory : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<Item>(out var item) && currentInteractableItem == item)
+        if (other.TryGetComponent<ItemBridge>(out var item) && currentInteractableItem == item)
         {
             currentInteractableItem = null;
             Debug.Log("Item out of range.");

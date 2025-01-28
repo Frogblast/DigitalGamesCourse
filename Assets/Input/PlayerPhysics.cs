@@ -1,11 +1,12 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 10f;
+    [Header("Settings")]
+    [SerializeField] private float movementSpeed = 6f;
     private Vector2 velocity = Vector2.zero;
+
+    public Vector3 LocalSpace { get; set; } = Vector3.zero;
 
     private void Update()
     {
@@ -14,9 +15,20 @@ public class PlayerPhysics : MonoBehaviour
 
     private void ApplyMovement()
     {
-        Vector3 velocity3D = new Vector3(velocity.x, 0, velocity.y);
+        if (LocalSpace == Vector3.zero) return;
 
-        transform.position += velocity3D.normalized * movementSpeed * Time.deltaTime;
+        Vector3 forward = LocalSpace;
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 direction = forward * velocity.y + right * velocity.x;
+
+        transform.position += direction * movementSpeed * Time.deltaTime;
     }
 
     internal void ChangeVelocity(Vector2 vector2)

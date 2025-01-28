@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +19,7 @@ public class CameraAiming
     {
         camera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
+
     public void UpdateMousePosition()
     {
         mousePosition = Mouse.current.delta.ReadValue();

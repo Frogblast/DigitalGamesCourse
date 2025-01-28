@@ -2,33 +2,25 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraAiming : MonoBehaviour
+public class CameraAiming
 {
+    private Camera camera;
+    private float mouseSensitivity;
+
+    public CameraAiming(Camera camera, float mouseSensitivity)
+    {
+        this.camera = camera;
+        this.mouseSensitivity = mouseSensitivity;
+    }
+
     private Vector2 mousePosition = Vector2.zero;
-
-    [SerializeField]
-    float mouseSensitivity = 50f;
-
     private float xRotation, yRotation;
 
-    private void Start()
+    public void Aim()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        camera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
-
-    void Update()
-    {
-        UpdateMousePosition();
-        Aim();
-    }
-
-
-    private void Aim()
-    {
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-    }
-
-    private void UpdateMousePosition()
+    public void UpdateMousePosition()
     {
         mousePosition = Mouse.current.delta.ReadValue();
         xRotation -= mousePosition.y * Time.deltaTime * mouseSensitivity;

@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This class is used by PlayerControls to handle inventory and looting.
- * The interface is TryPickUpItem() and DropItem(Vector3 dropPosition) (dropPosition is passed from PlayerControls)
+ * This class is used by PlayerPhysics to handle inventory and looting.
+ * The interface is TryPickUpItem() and DropItem(Vector3 dropPosition) (dropPosition is passed from PlayerPhysics)
  * The "genericItemPrefab" is assigned in the inspector in unity. Now it is set to the treasure gameobject
  * but it would be good to be able to pick up any items, not just the treasure. This could be done by extending the Item scriptable object
  * so that it holds info on all of the item's components. That way the genericItemPrefab could be a simple empty gameobject which programatically

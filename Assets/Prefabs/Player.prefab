@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4769545785155713183}
   - component: {fileID: 5965106534409177571}
   - component: {fileID: 8349613680268313990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 2810963751570302898}
   - component: {fileID: 1199738516670668784}
   - component: {fileID: 4527997203748501608}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 969212767726657221}
   - component: {fileID: 8226888274794302291}
   - component: {fileID: 6790104254891253292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

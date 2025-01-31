@@ -46,7 +46,11 @@ public class InputHandler : MonoBehaviour
     public void OnDrop(InputValue value)
     {
         if (inventory != null)
-            inventory.DropItem(transform.position);
+        {
+            Vector3 dropOffPosition = transform.position + mainCamera.transform.forward * 1.2f; // Spawn the item a bit in front of the player
+            dropOffPosition.y = transform.position.y; // make sure the item doesn't spawn under floor level
+            inventory.DropItem(dropOffPosition); 
+        }
     }
 
     public void OnJump(InputValue value)

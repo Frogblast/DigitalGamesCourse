@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -52,7 +53,10 @@ public class Inventory : MonoBehaviour
             newItem = droppedItem.AddComponent<ItemBridge>();
         }
 
+        // Specify/restore original item's components
         newItem.data = inventory[selectionIndex];
+        newItem.tag = "Treasure";
+        newItem.GetComponent<BoxCollider>().isTrigger = false;
 
         inventory.RemoveAt(selectionIndex);
     }

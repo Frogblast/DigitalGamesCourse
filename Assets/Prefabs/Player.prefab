@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8349613680268313990}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838f29bf81daf8e49ab5415b4aecb709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericItemPrefab: {fileID: 8764510635541955745, guid: d4030180cfda31048b3f675b034bd237, type: 3}
+  genericItemPrefab: {fileID: 8764510635541955745, guid: 02e154313b8940e498258ea7db6f07e0, type: 3}
 --- !u!114 &5965106534409177571
 MonoBehaviour:
   m_ObjectHideFlags: 0

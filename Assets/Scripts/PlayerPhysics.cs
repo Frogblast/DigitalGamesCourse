@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,11 +6,29 @@ public class PlayerPhysics : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float movementSpeed = 6f;
     [SerializeField] private float jumpForce = 280;
+
     private Vector2 velocity = Vector2.zero;
     private Rigidbody rb;
     private bool isGrounded;
     private GroundChecker groundChecker;
+    private bool isAlive = true;
     public Vector3 LocalSpace { get; set; } = Vector3.zero;
+
+    private void OnEnable()
+    {
+        EventManager.OnPlayerDeath += KillPlayer;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerDeath -= KillPlayer;
+    }
+
+    private void KillPlayer()
+    {
+        if (!isAlive) return;
+        isAlive = false;
+    }
 
     private void Start()
     {

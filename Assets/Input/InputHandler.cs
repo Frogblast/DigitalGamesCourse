@@ -48,4 +48,9 @@ public class InputHandler : MonoBehaviour
         if (inventory != null)
             inventory.DropItem(transform.position);
     }
+
+    public void OnJump(InputValue value)
+    {
+        player.Jump(value);
+    }
 }

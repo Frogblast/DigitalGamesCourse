@@ -11,7 +11,28 @@ public class PlayerPhysics : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
     private GroundChecker groundChecker;
+    private bool isAlive = true;
+
     public Vector3 LocalSpace { get; set; } = Vector3.zero;
+
+    private void OnEnable()
+    {
+        LethalZoneTrigger lethalZone = LethalZoneTrigger.FindAnyObjectByType<LethalZoneTrigger>();
+        if (lethalZone != null)
+            lethalZone.OnLethalZoneEnter += KillPlayer;
+    }
+
+    private void OnDisable()
+    {
+        LethalZoneTrigger lethalZone = LethalZoneTrigger.FindAnyObjectByType<LethalZoneTrigger>();
+        if (lethalZone != null)
+            lethalZone.OnLethalZoneEnter -= KillPlayer;
+    }
+
+    private void KillPlayer()
+    {
+        isAlive = false;
+    }
 
     private void Start()
     {
@@ -23,6 +44,7 @@ public class PlayerPhysics : MonoBehaviour
     {
         ApplyMovement();
         CheckIfGrounded();
+        if (!isAlive) Debug.Log("Player is dead");
     }
 
     private void CheckIfGrounded()

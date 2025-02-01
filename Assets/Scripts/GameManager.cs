@@ -5,8 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-
-
     private void Awake()
     {
         if (Instance == null)
@@ -18,6 +16,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Ensure only one instance of GameManager exists
         }
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
     }
 
     private void OnEnable()
@@ -33,6 +36,13 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game Over!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restart the game...
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 0f;
+    }
+
+    internal void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 }

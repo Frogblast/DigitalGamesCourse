@@ -24,7 +24,7 @@ public struct CharacterInput
 
 public class PlayerCharacter : MonoBehaviour, ICharacterController
 {
-
+   
     [SerializeField] private KinematicCharacterMotor motor;
     [SerializeField] private Transform root;
     [SerializeField] private Transform cameraTarget;
@@ -49,7 +49,9 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
     [Range(0f, 1f)]
     [SerializeField] private float standCameraTargetHeight = 0.9f;
     [Range(0f, 1f)]
-    [SerializeField] private float crouchCameraTargetHeight = 0.7f; 
+    [SerializeField] private float crouchCameraTargetHeight = 0.7f;
+    [Space]
+    [SerializeField] private PlayerAudio playerAudio;
 
     private Stance _stance;
 
@@ -80,9 +82,12 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         _requestedMovement = Vector3.ClampMagnitude(_requestedMovement, 1f);
         _requestedMovement = input.Rotation * _requestedMovement;
 
+         
+
         var wasRequestingJump = _requestedJump;
         _requestedJump = _requestedJump || input.Jump;
         if (_requestedJump && !wasRequestingJump)
+            playerAudio.PlayJumpSound(); // bandaid audio for jumping needs polish later
             _timeSinceJumpRequest = 0f;
 
         _requestedSustainedJump = input.JumpSustain;
@@ -95,6 +100,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         };
     }
 
+    // For dealing with crouching
     public void UpdateBody(float deltaTime)
     {
         var currentHeight = motor.Capsule.height;
@@ -122,6 +128,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         );
     }
 
+    // Acceleration both on ground and in the air and differentiate between walk and crouch speed
     public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
     {
         // if on ground 
@@ -144,6 +151,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
                 : crouchResponse; 
             // smooth acceleration on movement
             var targetVelocity = groundedMovement * speed;
+
+            if (targetVelocity.magnitude > 0f) // bandaid audio for walking
+                playerAudio.PlayWalkSound();
+
             currentVelocity = Vector3.Lerp
             (
                 a: currentVelocity,
@@ -240,6 +251,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         }
     }
     
+    // Checks if anything is above the player to not noclip the head
     public void AfterCharacterUpdate(float deltaTime)
     {
         // uncrouch
@@ -274,7 +286,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         }
     }
 
-
+    // interface functions not in use
     public bool IsColliderValidForCollisions(Collider coll) => true;
 
     public void OnDiscreteCollisionDetected(Collider hitCollider){}
@@ -288,6 +300,6 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
     public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport){}
 
    
-
+    // Refrence o the cameratarget where the camera clips too
     public Transform GetCameraTarget() => cameraTarget;
 }

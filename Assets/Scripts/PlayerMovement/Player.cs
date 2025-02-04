@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerCamera playerCamera;
     [Space]
     [SerializeField] private CameraSping cameraSpring;
+   
+
 
     private PlayerInputActions _inputActions;
     

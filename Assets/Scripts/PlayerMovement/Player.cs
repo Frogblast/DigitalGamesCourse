@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerCharacter playerCharacter;
     [SerializeField] private PlayerCamera playerCamera;
     [Space]
-    [SerializeField] private CameraSping cameraSpring;
+    [SerializeField] private CameraSpring cameraSpring;
    
 
 

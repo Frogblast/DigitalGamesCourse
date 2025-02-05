@@ -258,8 +258,8 @@ GameObject:
   - component: {fileID: 5965106534409177571}
   - component: {fileID: 8349613680268313990}
   m_Layer: 7
-  m_Name: PetterPlayer
-  m_TagString: Player
+  m_Name: Petter Player
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

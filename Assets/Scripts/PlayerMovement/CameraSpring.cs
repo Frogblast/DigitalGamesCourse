@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraSping : MonoBehaviour
+public class CameraSpring : MonoBehaviour
 {
     [Min(0.01f)]
     [SerializeField] private float halfLife = 0.075f;

@@ -6,13 +6,17 @@ public class PlayerPhysics : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float movementSpeed = 6f;
     [SerializeField] private float jumpForce = 280;
+    [SerializeField] private float groundDetectionDistance = 1.3f;
 
     private Vector2 velocity = Vector2.zero;
     private Rigidbody rb;
-    private bool isGrounded;
-    private GroundChecker groundChecker;
     private bool isAlive = true;
     public Vector3 LocalSpace { get; set; } = Vector3.zero;
+
+    private bool IsGrounded()
+    { 
+        return Physics.Raycast(transform.position, Vector3.down, groundDetectionDistance); ;
+    }
 
     private void OnEnable()
     {
@@ -33,18 +37,11 @@ public class PlayerPhysics : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        groundChecker = GetComponentInChildren<GroundChecker>();
     }
 
     private void Update()
     {
         ApplyMovement();
-        CheckIfGrounded();
-    }
-
-    private void CheckIfGrounded()
-    {
-        isGrounded = groundChecker.IsGrounded;
     }
 
     private void ApplyMovement()
@@ -72,8 +69,7 @@ public class PlayerPhysics : MonoBehaviour
 
     internal void Jump(InputValue value)
     {
-        if (rb == null) Debug.Log("No rigidbody found");
-        if (isGrounded)
+        if (IsGrounded())
             rb.AddForce(Vector3.up * jumpForce);
     }
 }

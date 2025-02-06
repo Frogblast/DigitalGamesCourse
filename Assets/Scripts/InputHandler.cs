@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour
     private PlayerPhysics player;
     private CameraAiming cameraAiming;
     private Inventory inventory;
+    private PlayerAudio playerAudio;
 
     [Header("Settings")]
     [SerializeField]
@@ -22,6 +23,7 @@ public class InputHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         player = GetComponent<PlayerPhysics>();
         inventory = GetComponent<Inventory>();
+        playerAudio = GetComponentInChildren<PlayerAudio>();
     }
 
     private void Update()
@@ -35,6 +37,10 @@ public class InputHandler : MonoBehaviour
     {
         Vector2 newVelocity = value.Get<Vector2>();
         player.ChangeVelocity(newVelocity);
+        if (newVelocity.sqrMagnitude >= 0)
+        {
+            playerAudio.PlayWalkSound();
+        }
     }
 
     public void OnPickUp(InputValue value)
@@ -56,5 +62,6 @@ public class InputHandler : MonoBehaviour
     public void OnJump(InputValue value)
     {
         player.Jump(value);
+        playerAudio.PlayJumpSound();
     }
 }

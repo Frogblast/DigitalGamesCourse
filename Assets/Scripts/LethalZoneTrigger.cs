@@ -12,7 +12,7 @@ public class LethalZoneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Character"))
         {
             Debug.Log("Player hit lethal zone");
             EventManager.TriggerPlayerDeath(); // Invoke the eventmanagers global event

@@ -10525,6 +10525,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2117290770}
   m_LocalEulerAnglesHint: {x: 0, y: -178.766, z: 0}
+--- !u!114 &903556280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5965106534409177571, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+  m_PrefabInstance: {fileID: 979290957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d961e07347961984a96ceeb3f2bfd69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &912110395
 Mesh:
   m_ObjectHideFlags: 0
@@ -10755,6 +10766,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: walkSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: sprintSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3145668235337664593, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.01
@@ -10794,6 +10813,46 @@ PrefabInstance:
     - target: {fileID: 3145668235337664593, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: bde71b41-b444-4ec6-a277-24a443da5f63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player/Sprint[/Keyboard/leftShift]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 903556280}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764662734410887016, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6162593184136484707, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: m_Name

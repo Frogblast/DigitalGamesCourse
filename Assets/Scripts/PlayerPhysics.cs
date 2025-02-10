@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerPhysics : MonoBehaviour
 {
@@ -11,7 +10,15 @@ public class PlayerPhysics : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private Rigidbody rb;
     private bool isAlive = true;
+    private CameraAnimationHandler CameraAnimationHandler;
+
     public Vector3 LocalSpace { get; set; } = Vector3.zero;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        CameraAnimationHandler = GetComponentInChildren<CameraAnimationHandler>();
+    }
 
     private bool IsGrounded()
     { 
@@ -34,14 +41,27 @@ public class PlayerPhysics : MonoBehaviour
         isAlive = false;
     }
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
     private void Update()
     {
         ApplyMovement();
+        ApplyCameraAnimation();
+    }
+
+    private void ApplyCameraAnimation()
+    {
+        if (Mathf.Abs(rb.velocity.y) > float.Epsilon)
+        {
+            CameraAnimationHandler.SetAnimationState(CameraAnimationHandler.State.Airborne);
+            return;
+        }
+
+        if (Mathf.Abs(rb.velocity.x) > float.Epsilon || Mathf.Abs(rb.velocity.z) > float.Epsilon)
+        {
+            CameraAnimationHandler.SetAnimationState(CameraAnimationHandler.State.Walking);
+            return;
+        }
+
+        CameraAnimationHandler.SetAnimationState(CameraAnimationHandler.State.Idling);
     }
 
     private void ApplyMovement()
@@ -67,7 +87,7 @@ public class PlayerPhysics : MonoBehaviour
         velocity = vector2;
     }
 
-    internal void Jump(InputValue value)
+    internal void Jump()
     {
         if (IsGrounded())
             rb.AddForce(Vector3.up * jumpForce);

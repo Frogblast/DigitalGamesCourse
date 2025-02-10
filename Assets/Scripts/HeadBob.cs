@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 /*
- * Apply this to any fps camera which is the child of a player gameobject to get a head bob effect.
+ * Apply this to any fps camera which is the child of a playerPhysics gameobject to get a head bob effect.
  * Completely independent of any other script, component or gameobject.
  */
 public class HeadBob : MonoBehaviour
@@ -15,7 +15,7 @@ public class HeadBob : MonoBehaviour
     private bool isMoving = false;
     private bool isMovingY = false;
     float moveTimer;
-    Vector3 offsetRelatativeToParent; // The distance between the camera transform and the player
+    Vector3 offsetRelatativeToParent; // The distance between the camera transform and the playerPhysics
     private void FixedUpdate()
     {
         ApplyBob();

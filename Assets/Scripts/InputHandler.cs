@@ -33,9 +33,9 @@ public class InputHandler : MonoBehaviour
         playerPhysics.LocalSpace = mainCamera.transform.forward; // To update the playerPhysics local space to match the camera's
     }
 
-    public void OnMovement(InputValue value)
+    public void Movement(InputAction.CallbackContext context)
     {
-        Vector2 newVelocity = value.Get<Vector2>();
+        Vector2 newVelocity = context.ReadValue<Vector2>();
         playerPhysics.ChangeVelocity(newVelocity);
         if (newVelocity.sqrMagnitude >= 0)
         {
@@ -43,13 +43,13 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    public void OnPickUp(InputValue value)
+    public void PickUp(InputAction.CallbackContext context)
     {
         if (inventory != null)
             inventory.TryPickUpItem();
     }
 
-    public void OnDrop(InputValue value)
+    public void Drop(InputAction.CallbackContext context)
     {
         if (inventory != null)
         {
@@ -61,9 +61,9 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    public void OnJump(InputValue value)
+    public void Jump(InputAction.CallbackContext context)
     {
-        playerPhysics.Jump(value);
+        playerPhysics.Jump();
         playerAudio.PlayJumpSound();
     }
 }

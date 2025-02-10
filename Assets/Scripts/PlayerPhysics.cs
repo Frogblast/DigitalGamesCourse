@@ -67,7 +67,7 @@ public class PlayerPhysics : MonoBehaviour
         velocity = vector2;
     }
 
-    internal void Jump(InputValue value)
+    internal void Jump()
     {
         if (IsGrounded())
             rb.AddForce(Vector3.up * jumpForce);

@@ -66,4 +66,16 @@ public class InputHandler : MonoBehaviour
         playerPhysics.Jump();
         playerAudio.PlayJumpSound();
     }
+
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            playerPhysics.IsSprinting = true;
+        } 
+        else if (context.canceled)
+        {
+            playerPhysics.IsSprinting = false;
+        }
+    }
 }

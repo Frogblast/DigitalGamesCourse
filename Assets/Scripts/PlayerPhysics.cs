@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerPhysics : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float movementSpeed = 6f;
+    [SerializeField] private float walkSpeed = 6f;
+    [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float jumpForce = 280;
     [SerializeField] private float groundDetectionDistance = 1.3f;
 
@@ -13,6 +14,7 @@ public class PlayerPhysics : MonoBehaviour
     private CameraAnimationHandler CameraAnimationHandler;
 
     public Vector3 LocalSpace { get; set; } = Vector3.zero;
+    public bool IsSprinting { get; internal set; } = false;
 
     private void Start()
     {
@@ -66,7 +68,9 @@ public class PlayerPhysics : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (LocalSpace == Vector3.zero) return;
+        if (LocalSpace == Vector3.zero) return; // Don't apply movement if there is no updated direction
+     
+        float currentSpeed = IsSprinting? sprintSpeed : walkSpeed; // Set the actual speed to be applied according to the IsSprinting bool
 
         Vector3 forward = LocalSpace;
         Vector3 right = Vector3.Cross(Vector3.up, forward);
@@ -79,7 +83,7 @@ public class PlayerPhysics : MonoBehaviour
 
         Vector3 direction = forward * velocity.y + right * velocity.x;
 
-        transform.position += direction * movementSpeed * Time.deltaTime;
+        transform.position += direction * currentSpeed * Time.deltaTime;
     }
 
     internal void ChangeVelocity(Vector2 vector2)

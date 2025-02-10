@@ -3,11 +3,6 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    private PlayerPhysics player;
-    private CameraAiming cameraAiming;
-    private Inventory inventory;
-    private PlayerAudio playerAudio;
-
     [Header("Settings")]
     [SerializeField]
     private float mouseSensitivity = 50f;
@@ -15,28 +10,33 @@ public class InputHandler : MonoBehaviour
     [Header("Components")]
     [SerializeField]
     private Camera mainCamera;
+    [SerializeField]
+    private CameraAiming cameraAiming;
+    [SerializeField]
+    private Inventory inventory;
+    [SerializeField]
+    private PlayerAudio playerAudio;
 
+    private PlayerPhysics playerPhysics;
 
     private void Start()
     {
         cameraAiming = new CameraAiming(mainCamera, mouseSensitivity);
         Cursor.lockState = CursorLockMode.Locked;
-        player = GetComponent<PlayerPhysics>();
-        inventory = GetComponent<Inventory>();
-        playerAudio = GetComponentInChildren<PlayerAudio>();
+        playerPhysics = GetComponent<PlayerPhysics>();
     }
 
     private void Update()
     {
         cameraAiming.UpdateMousePosition();
         cameraAiming.Aim();
-        player.LocalSpace = mainCamera.transform.forward; // To update the player local space to match the camera's
+        playerPhysics.LocalSpace = mainCamera.transform.forward; // To update the playerPhysics local space to match the camera's
     }
 
     public void OnMovement(InputValue value)
     {
         Vector2 newVelocity = value.Get<Vector2>();
-        player.ChangeVelocity(newVelocity);
+        playerPhysics.ChangeVelocity(newVelocity);
         if (newVelocity.sqrMagnitude >= 0)
         {
             playerAudio.PlayWalkSound();
@@ -53,7 +53,9 @@ public class InputHandler : MonoBehaviour
     {
         if (inventory != null)
         {
-            Vector3 dropOffPosition = transform.position + mainCamera.transform.forward * 1.2f; // Spawn the item a bit in front of the player
+            Vector3 dropOffOffset = mainCamera.transform.forward;
+            dropOffOffset.Normalize();
+            Vector3 dropOffPosition = transform.position + dropOffOffset * 3f; // Spawn the item a bit in front of the playerPhysics
             dropOffPosition.y = transform.position.y; // make sure the item doesn't spawn under floor level
             inventory.DropItem(dropOffPosition); 
         }
@@ -61,7 +63,7 @@ public class InputHandler : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        player.Jump(value);
+        playerPhysics.Jump(value);
         playerAudio.PlayJumpSound();
     }
 }

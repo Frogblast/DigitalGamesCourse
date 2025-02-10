@@ -251,7 +251,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         }
     }
     
-    // Checks if anything is above the player to not noclip the head
+    // Checks if anything is above the playerPhysics to not noclip the head
     public void AfterCharacterUpdate(float deltaTime)
     {
         // uncrouch

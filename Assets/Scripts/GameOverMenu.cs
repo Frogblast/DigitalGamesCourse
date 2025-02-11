@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InGameMenu : MonoBehaviour
+public class GameOverMenu : MonoBehaviour
 {
     public void OnRestartButton()
     {

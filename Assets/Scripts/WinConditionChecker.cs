@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WinConditionChecker : MonoBehaviour
@@ -9,7 +7,7 @@ public class WinConditionChecker : MonoBehaviour
         Debug.Log("at drop off: " + other.gameObject);
         if (other.CompareTag("Treasure"))
         {
-            Debug.Log("Treasure taken to drop-off point");
+            EventManager.TriggerWinCondition();
         }
     }
 }

@@ -14,6 +14,9 @@ public class PlayerPhysics : MonoBehaviour
     private bool isAlive = true;
     public Vector3 LocalSpace { get; set; } = Vector3.zero;
 
+    [Header ("Inventory")]
+    public InventoryScript inventory;
+
     private void OnEnable()
     {
         EventManager.OnPlayerDeath += KillPlayer;
@@ -74,6 +77,16 @@ public class PlayerPhysics : MonoBehaviour
     {
         if (rb == null) Debug.Log("No rigidbody found");
         if (isGrounded)
-            rb.AddForce(Vector3.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            inventory.AddItem(item);
+        }
+    }
+
 }

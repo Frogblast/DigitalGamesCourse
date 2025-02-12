@@ -273,7 +273,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 969212767726657221}
@@ -370,6 +370,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 21c4fc2d-4ec7-455b-9180-978f68d76410
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5965106534409177571}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Sprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bde71b41-b444-4ec6-a277-24a443da5f63
+    m_ActionName: Player/Sprint[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -389,7 +405,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 50
   mainCamera: {fileID: 8226888274794302291}
-  cameraAnimationHandler: {fileID: 6581284760532339129}
   inventory: {fileID: 4981057402714164582}
   playerAudio: {fileID: 4652381383689658547}
 --- !u!54 &8668089720355849464
@@ -431,7 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c277935980bbc343989197293d0ccaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 6
+  walkSpeed: 5
+  sprintSpeed: 8
   jumpForce: 150
   groundDetectionDistance: 1.3
 --- !u!33 &8180059034069554431

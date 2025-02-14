@@ -78,4 +78,12 @@ public class InputHandler : MonoBehaviour
             playerPhysics.IsSprinting = false;
         }
     }
+
+    public void ToggleColorBlindMode(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        ColorBlindHandler handler = mainCamera.GetComponent<ColorBlindHandler>();
+        handler.EnableColorBlindMode();
+        handler.ChangeMode();
+    }
 }

@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
             JumpSustain = input.Jump.IsPressed(),
             Crouch      = input.Crouch.WasPressedThisFrame()
                 ? CrouchInput.Toogle
-                : CrouchInput.None
+                : CrouchInput.None,
+            Interact    = input.Interact.WasPressedThisFrame()
         };
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(deltaTime);

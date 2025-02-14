@@ -30,8 +30,8 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
-
-
-
-
+    internal void DropItem()
+    {
+        throw new NotImplementedException();
+    }
 }

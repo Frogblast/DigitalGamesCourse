@@ -17,6 +17,11 @@ public class InputHandler : MonoBehaviour
     private Camera mainCamera;
 
 
+    [SerializeField]
+    private InventoryScript inventoryscript;
+
+
+
     private void Start()
     {
         cameraAiming = new CameraAiming(mainCamera, mouseSensitivity);
@@ -63,5 +68,10 @@ public class InputHandler : MonoBehaviour
     {
         player.Jump(value);
         playerAudio.PlayJumpSound();
+    }
+
+    public void OnHotbar_1(InputValue value)
+    {
+        inventoryscript.DropItem();
     }
 }

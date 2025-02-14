@@ -14,6 +14,15 @@ public class InventoryScript : MonoBehaviour
 
     public event EventHandler<InventoryEventArgs> ItemRemoved;
 
+
+    internal bool slotIsEmpty(int hotbarSelected) 
+    {
+        return mItems[hotbarSelected] == null;    
+
+    }
+
+
+
     public void AddItem(IInventoryItem item)
     {
         bool canPickup = false;

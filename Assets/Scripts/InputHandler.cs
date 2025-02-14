@@ -81,31 +81,32 @@ public class InputHandler : MonoBehaviour
         playerAudio.PlayJumpSound();
     }
 
-    public void OnHotbar_1(InputValue value)
+    public void OnHotbar_1(InputAction.CallbackContext context)
     {
+
         hotbarSelected = 0;
         hotbarChangeItem();
     }
 
-    public void OnHotbar_2(InputValue value)
+    public void OnHotbar_2(InputAction.CallbackContext context)
     {
         hotbarSelected = 1;
         hotbarChangeItem();
     }
 
-    public void OnHotbar_3(InputValue value)
+    public void OnHotbar_3(InputAction.CallbackContext context)
     {
         hotbarSelected = 2;
         hotbarChangeItem();
     }
 
-    public void OnHotbar_4(InputValue value)
+    public void OnHotbar_4(InputAction.CallbackContext context)
     {
         hotbarSelected = 3;
         hotbarChangeItem();
     }
 
-    public void OnHotbar_5(InputValue value)
+    public void OnHotbar_5(InputAction.CallbackContext context)
     {
         hotbarSelected = 4;
         hotbarChangeItem();
@@ -126,28 +127,25 @@ public class InputHandler : MonoBehaviour
             }
             else
             {
-                scale = new Vector3(0.9f, 0.9f, 0.9f);
+                scale = new Vector3(1f, 1f, 1f);
             }
             slot.transform.localScale = scale;
         }
 
     }
 
-    
-    
 
 
-    public void OnDropItem(InputValue value) {
-        Debug.Log("You dropped an item visually");
 
-        hud.selectedSlot = hotbarSelected;
-        inventoryscript.hotbarSelected = hotbarSelected;
+    public void OnDropItem(InputAction.CallbackContext context)
+    {
+        if (context.started && !inventoryscript.slotIsEmpty(hotbarSelected)) 
+        { 
+            hud.selectedSlot = hotbarSelected;
+            inventoryscript.hotbarSelected = hotbarSelected;
 
-
-        inventoryscript.DropItem(hotbarSelected);
-
-        
-       
+            inventoryscript.DropItem(hotbarSelected);
+        }
 
     }
 

@@ -167,9 +167,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Objective:\n\t- Find the treasure and return it to the start location\n\nHow
-    to play:\n\t- Aiming: mouse\n\t- Steering: WASD\n\t- Jumping: SPACE (tap or hold)\n\t-
-    Pick up item: E\n\t- Drop item: R\n"
+  m_text: 'Objective:
+
+    - Find the treasure and return it to the start location
+
+
+    How
+    to play:
+
+    - Aiming: mouse
+
+    - Steering: WASD
+
+    - Jumping: SPACE (tap
+    or hold)
+
+    - Pick up item: E
+
+    - Drop item: R
+
+    - Toggle color blind
+    filters: F1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

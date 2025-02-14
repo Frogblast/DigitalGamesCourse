@@ -63,7 +63,7 @@ public class InputHandler : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        playerPhysics.Jump();
+        playerPhysics.Jump(context);
         playerAudio.PlayJumpSound();
     }
 
@@ -77,5 +77,13 @@ public class InputHandler : MonoBehaviour
         {
             playerPhysics.IsSprinting = false;
         }
+    }
+
+    public void ToggleColorBlindMode(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        ColorBlindHandler handler = mainCamera.GetComponent<ColorBlindHandler>();
+        handler.EnableColorBlindMode();
+        handler.ChangeMode();
     }
 }

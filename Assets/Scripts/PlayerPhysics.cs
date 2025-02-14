@@ -1,11 +1,15 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPhysics : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float walkSpeed = 6f;
     [SerializeField] private float sprintSpeed = 10f;
-    [SerializeField] private float jumpForce = 280;
+    [SerializeField] private float jumpForce = 6f;
+    [SerializeField] private float tapJumpForce = 5f;
     [SerializeField] private float groundDetectionDistance = 1.3f;
 
     private Vector2 velocity = Vector2.zero;
@@ -91,9 +95,18 @@ public class PlayerPhysics : MonoBehaviour
         velocity = vector2;
     }
 
-    internal void Jump()
+    internal void Jump(InputAction.CallbackContext context)
     {
-        if (IsGrounded())
-            rb.AddForce(Vector3.up * jumpForce);
+        if (context.started && IsGrounded())
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        bool tapped = context.interaction is UnityEngine.InputSystem.Interactions.TapInteraction;
+
+        if (context.performed && tapped) // If tapping - cut the velocity in y direction
+        {
+            float tapJumpMultiplier = 0.6f;
+            if (rb.velocity.y > 0) 
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * tapJumpMultiplier, rb.velocity.z);
+        }
     }
 }

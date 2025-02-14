@@ -23,4 +23,9 @@ public class Treasure : MonoBehaviour, IInventoryItem
     {
         gameObject.SetActive(false);
     }
+
+    public void OnDrop()
+    {
+        gameObject.SetActive(true);
+    }
 }

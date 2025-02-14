@@ -26,4 +26,9 @@ public class Key : MonoBehaviour, IInventoryItem
         // For now, just remove the object
         gameObject.SetActive(false);
     }
+
+    public void OnDrop()
+    {
+        gameObject.SetActive(true);
+    }
 }

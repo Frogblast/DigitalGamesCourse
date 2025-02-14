@@ -1,3 +1,6 @@
+using System.Data;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,7 +22,13 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField]
     private InventoryScript inventoryscript;
+    [SerializeField]
+    private GameObject[] hotbarslots = new GameObject[5];
+    
+    private int hotbarSelected = 0;
 
+    [SerializeField]
+    private HUD hud;
 
 
     private void Start()
@@ -72,6 +81,72 @@ public class InputHandler : MonoBehaviour
 
     public void OnHotbar_1(InputValue value)
     {
-        inventoryscript.DropItem();
+        hotbarSelected = 0;
+        hotbarChangeItem();
     }
+
+    public void OnHotbar_2(InputValue value)
+    {
+        hotbarSelected = 1;
+        hotbarChangeItem();
+    }
+
+    public void OnHotbar_3(InputValue value)
+    {
+        hotbarSelected = 2;
+        hotbarChangeItem();
+    }
+
+    public void OnHotbar_4(InputValue value)
+    {
+        hotbarSelected = 3;
+        hotbarChangeItem();
+    }
+
+    public void OnHotbar_5(InputValue value)
+    {
+        hotbarSelected = 4;
+        hotbarChangeItem();
+    }
+
+
+    private void hotbarChangeItem()
+    {
+        inventoryscript.hotbarSelected = hotbarSelected; 
+
+        foreach(GameObject slot in hotbarslots)
+        {
+            Vector3 scale;
+
+            if (slot == hotbarslots[hotbarSelected])
+            {
+                scale = new Vector3(1.1f, 1.1f, 1.1f);
+            }
+            else
+            {
+                scale = new Vector3(0.9f, 0.9f, 0.9f);
+            }
+            slot.transform.localScale = scale;
+        }
+
+    }
+
+    
+    
+
+
+    public void OnDropItem(InputValue value) {
+        Debug.Log("You dropped an item visually");
+
+        hud.selectedSlot = hotbarSelected;
+        inventoryscript.hotbarSelected = hotbarSelected;
+
+
+        inventoryscript.DropItem(hotbarSelected);
+
+        
+       
+
+    }
+
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,11 +27,19 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.OnPlayerDeath += GameOver;
+        EventManager.OnWinningGame += FinishedLevel;
     }
-
     private void OnDisable()
     {
         EventManager.OnPlayerDeath -= GameOver;
+        EventManager.OnWinningGame -= FinishedLevel;
+    }
+
+    private void FinishedLevel()
+    {
+        Debug.Log("Finished level");
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 0f;
     }
 
     private void GameOver()

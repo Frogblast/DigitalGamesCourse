@@ -38,6 +38,24 @@
                     "id": "21c4fc2d-4ec7-455b-9180-978f68d76410",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "bde71b41-b444-4ec6-a277-24a443da5f63",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateColorBlindMode",
+                    "type": "Button",
+                    "id": "a4449c31-c4ef-4aac-8a96-5aa969f2e536",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
@@ -187,67 +205,23 @@
                 },
                 {
                     "name": "",
-                    "id": "5ff5ebd2-e227-4af4-8692-41d4db3821b2",
-                    "path": "<Keyboard>/1",
+                    "id": "a4a64e84-c530-4781-aafa-0a3f6938efc8",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hotbar_1",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ba95e2ab-275d-43b0-b90a-c6800f18309a",
-                    "path": "<Keyboard>/2",
+                    "id": "e907701f-c094-4733-be62-fd35df5691aa",
+                    "path": "<Keyboard>/f1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hotbar_2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3d613125-8fe3-4d4f-b4aa-6b6df1ca6065",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hotbar_3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f4f8bd42-74bc-4ae7-af98-f2ad4cadb584",
-                    "path": "<Keyboard>/4",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hotbar_4",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c6049b4a-943e-4dbc-8f7a-d58f3f603d0d",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hotbar_5",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c04f0490-083d-4c8b-bd3d-de4d0506cebe",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DropItem",
+                    "action": "ActivateColorBlindMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -74,7 +74,7 @@ public class TrapGrid : MonoBehaviour
             int cols = map.GetLength(1);
 
             GameObject gridParent = new GameObject("GeneratedGrid");
-            gridParent.transform.SetParent(this.transform);
+            gridParent.transform.SetParent(this.transform, false);
             gridParent.transform.localScale = new Vector3(tileSize, tileSize, tileSize);
             gridParent.transform.localPosition = Vector3.zero; // zero to the prefab invisiblecorridor
 

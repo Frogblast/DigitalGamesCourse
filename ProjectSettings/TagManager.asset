@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Treasure
   - Ground
+  - Character
+  - Boulder
   layers:
   - Default
   - TransparentFX

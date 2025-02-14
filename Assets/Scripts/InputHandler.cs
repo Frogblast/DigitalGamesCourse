@@ -63,7 +63,7 @@ public class InputHandler : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        playerPhysics.Jump();
+        playerPhysics.Jump(context);
         playerAudio.PlayJumpSound();
     }
 

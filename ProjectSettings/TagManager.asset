@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Treasure
+  - Ground
   - Character
   - Boulder
   layers:
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - Item
   - Player
-  - 
+  - whatIsGrounded
   - 
   - 
   - 

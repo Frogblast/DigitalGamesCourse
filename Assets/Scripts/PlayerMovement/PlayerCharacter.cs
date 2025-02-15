@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using KinematicCharacterController;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.Windows;
 
 public enum CrouchInput
 {  // add hold to crouch
@@ -20,6 +22,7 @@ public struct CharacterInput
     public bool Jump;
     public bool JumpSustain;
     public CrouchInput Crouch;
+    public bool Interact;
 }
 
 public class PlayerCharacter : MonoBehaviour, ICharacterController
@@ -81,9 +84,9 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         _requestedMovement = new Vector3(input.Move.x, 0f, input.Move.y);
         _requestedMovement = Vector3.ClampMagnitude(_requestedMovement, 1f);
         _requestedMovement = input.Rotation * _requestedMovement;
-
-         
-
+        
+        CastRay(input);
+   
         var wasRequestingJump = _requestedJump;
         _requestedJump = _requestedJump || input.Jump;
         if (_requestedJump && !wasRequestingJump)
@@ -285,6 +288,47 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
             }
         }
     }
+
+    // doubt if it should be here but it works, a bit ugly
+    private Interactable lastInteractable = null;
+    public void CastRay(CharacterInput input) // rename to lookray or something, is not performing interact anymore
+    {
+        // get main camera info
+        Vector3 rayOrigin = Camera.main.transform.position;
+        Vector3 rayDirection = Camera.main.transform.forward;
+        float rayDistance = 5f; // Interaction distance make serialized if I want later
+
+        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red, 0.1f);
+
+        Ray ray = new Ray(rayOrigin, rayDirection);
+        RaycastHit hit;
+
+        Interactable currentInteractable = null;
+
+        // send the ray
+        if (Physics.Raycast(ray, out hit, 5f))
+        {
+            currentInteractable = hit.collider.GetComponent<Interactable>();
+            // the object with the interacable interface script on is hit with ray
+            if (currentInteractable != null)
+            {
+                currentInteractable.IsLookedAt(true); // activate that the object is hovered over visibly in game
+                if(input.Interact)
+                {
+                    // if object that is hovered over is interacted with (e is pressed)
+                    Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green, 5);
+                    currentInteractable.Interact();
+                }
+            }
+        }
+        // if we stopped looking at an object, reset the cololr
+        if (lastInteractable != currentInteractable)
+        {
+            lastInteractable?.IsLookedAt(false);
+            lastInteractable = currentInteractable; // reset the color to nothing
+        }
+    }
+
 
     // interface functions not in use
     public bool IsColliderValidForCollisions(Collider coll) => true;

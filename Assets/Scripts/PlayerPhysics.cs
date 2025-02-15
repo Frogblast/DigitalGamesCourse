@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +10,11 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] private float tapJumpForce = 3f;
     [SerializeField] private float groundDetectionDistance = 0.6f;
     [SerializeField] private float acceleration = 25f;
+    [SerializeField] private float airborneSteeringDampening = 0.4f;
+
 
     private Vector2 velocity = Vector2.zero;
+    private Vector3 airborneVelocity = Vector3.zero;
     private Rigidbody rb;
     private bool isAlive = true;
     private CameraAnimationHandler CameraAnimationHandler;
@@ -40,7 +41,6 @@ public class PlayerPhysics : MonoBehaviour
 
     [Header ("Inventory")]
     public InventoryScript inventory;
-
 
     private void OnEnable()
     {
@@ -93,12 +93,11 @@ public class PlayerPhysics : MonoBehaviour
         float targetSpeed = IsSprinting ? sprintSpeed : walkSpeed; // Set the actual speed to be applied according to the IsSprinting bool
         float maxSpeed = targetSpeed;
 
+        // Find what is "forward" (and sideways "right") from the player's perspective
         Vector3 forward = LocalSpace;
         Vector3 right = Vector3.Cross(Vector3.up, forward);
-
         forward.y = 0;
         right.y = 0;
-
         forward.Normalize();
         right.Normalize();
 
@@ -108,16 +107,28 @@ public class PlayerPhysics : MonoBehaviour
         Vector3 currentVelocity = rb.velocity;
         currentVelocity.y = 0; // Ignore y-velocity since we are moving horizontally
 
+        // find the direction of the new input
         Vector3 velocityChange = (targetVelocity - currentVelocity);
-        velocityChange = Vector3.ClampMagnitude(velocityChange, acceleration * Time.fixedDeltaTime);
+        velocityChange = Vector3.ClampMagnitude(velocityChange, acceleration * Time.fixedDeltaTime); // for smoother movement
 
-        rb.AddForce(new Vector3(velocityChange.x, 0, velocityChange.z), ForceMode.VelocityChange); // Apply horizontal force
-
-        // Cap horizontal speed
-        Vector3 flatVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        if (flatVelocity.magnitude > maxSpeed)
+        // Handle reduced effectivity of new input when airborne
+        if (!IsGrounded() && targetVelocity != airborneVelocity)
         {
-            rb.velocity = flatVelocity.normalized * maxSpeed; // cap the horizontal speed to max
+            velocityChange *= airborneSteeringDampening;
+        }
+        else if (IsGrounded())
+        {
+            airborneVelocity = targetVelocity;
+        }
+
+        // Apply the actual force (horizontal only)
+        rb.AddForce(new Vector3(velocityChange.x, 0, velocityChange.z), ForceMode.VelocityChange);
+
+        // Cap horizontal speed if larger than maxSpeed
+        Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        if (horizontalVelocity.magnitude > maxSpeed)
+        {
+            rb.velocity = horizontalVelocity.normalized * maxSpeed;
             rb.velocity += Vector3.up * rb.velocity.y; // restore the y velocity for gravity
         }
     }

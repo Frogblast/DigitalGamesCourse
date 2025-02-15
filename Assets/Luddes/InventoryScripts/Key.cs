@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Key : MonoBehaviour, IInventoryItem
 {
+    [SerializeField] private float offset = 2f; 
     public string Name
     {
         get
@@ -22,13 +23,19 @@ public class Key : MonoBehaviour, IInventoryItem
 
     public void OnPickup()
     {
-        // Logic for what happens when picking up object. Ex. adding it to the players hand
-        // For now, just remove the object
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // Disables the object, but keeps it in the scene
     }
 
+    // Drops the object where the player is looking
     public void OnDrop()
     {
+        GameObject camera = GameObject.Find("Main Camera");
+        Vector3 dropPosition = camera.transform.position + camera.transform.forward * offset;
+        if (dropPosition.y < 0.5) // If player is looking at the ground while dropping, this makes sure the object spawns on the ground
+        {
+            dropPosition = new Vector3(dropPosition.x, 1f, dropPosition.z);
+        }
+        transform.position = dropPosition;
         gameObject.SetActive(true);
     }
 }

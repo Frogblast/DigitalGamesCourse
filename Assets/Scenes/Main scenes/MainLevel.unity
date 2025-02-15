@@ -1625,6 +1625,10 @@ PrefabInstance:
       propertyPath: groundDetectionDistance
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: airborneSteeringDampening
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3145668235337664593, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1675,7 +1679,7 @@ PrefabInstance:
       objectReference: {fileID: 1131283160}
     - target: {fileID: 5965106534409177571, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: mouseSensitivity
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5965106534409177571, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: hotbarslots.Array.data[0]

@@ -1549,9 +1549,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1131283160}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: walkSpeed
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: sprintSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: acceleration
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 532540056656669887, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
+      propertyPath: groundDetectionDistance
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3145668235337664593, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

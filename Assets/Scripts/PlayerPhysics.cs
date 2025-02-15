@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerPhysics : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float walkSpeed = 6f;
-    [SerializeField] private float sprintSpeed = 10f;
-    [SerializeField] private float jumpForce = 6f;
+    [SerializeField] private float walkSpeed = 4.5f;
+    [SerializeField] private float sprintSpeed = 7f;
+    [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float tapJumpForce = 5f;
-    [SerializeField] private float groundDetectionDistance = 1.3f;
+    [SerializeField] private float groundDetectionDistance = 1.1f;
+    [SerializeField] private float acceleration = 25f;
 
     private Vector2 velocity = Vector2.zero;
     private Rigidbody rb;
@@ -24,6 +25,7 @@ public class PlayerPhysics : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         CameraAnimationHandler = GetComponentInChildren<CameraAnimationHandler>();
+        rb.freezeRotation = true;
     }
 
     private bool IsGrounded()
@@ -33,6 +35,7 @@ public class PlayerPhysics : MonoBehaviour
 
     [Header ("Inventory")]
     public InventoryScript inventory;
+
 
     private void OnEnable()
     {
@@ -50,11 +53,16 @@ public class PlayerPhysics : MonoBehaviour
         isAlive = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         ApplyMovement();
+    }
+
+    private void Update()
+    {
         ApplyCameraAnimation();
     }
+
 
     private void ApplyCameraAnimation()
     {
@@ -77,7 +85,8 @@ public class PlayerPhysics : MonoBehaviour
     {
         if (LocalSpace == Vector3.zero) return; // Don't apply movement if there is no updated direction
      
-        float currentSpeed = IsSprinting? sprintSpeed : walkSpeed; // Set the actual speed to be applied according to the IsSprinting bool
+        float targetSpeed = IsSprinting ? sprintSpeed : walkSpeed; // Set the actual speed to be applied according to the IsSprinting bool
+        float maxSpeed = targetSpeed;
 
         Vector3 forward = LocalSpace;
         Vector3 right = Vector3.Cross(Vector3.up, forward);
@@ -88,9 +97,19 @@ public class PlayerPhysics : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        Vector3 direction = forward * velocity.y + right * velocity.x;
+        Vector3 moveDirection = (forward * velocity.y + right * velocity.x).normalized;
 
-        transform.position += direction * currentSpeed * Time.deltaTime;
+        Vector3 targetVelocity = moveDirection * targetSpeed;
+        Vector3 velocityChange = (targetVelocity - rb.velocity);
+
+        velocityChange = Vector3.ClampMagnitude(velocityChange, acceleration * Time.fixedDeltaTime);
+
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
     }
 
     internal void ChangeVelocity(Vector2 vector2)

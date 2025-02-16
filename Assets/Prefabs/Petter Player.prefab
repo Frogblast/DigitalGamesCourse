@@ -273,7 +273,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 969212767726657221}
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d961e07347961984a96ceeb3f2bfd69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 3
+  mouseSensitivity: 10
   mainCamera: {fileID: 8226888274794302291}
   inventory: {fileID: 4981057402714164582}
   playerAudio: {fileID: 4652381383689658547}
@@ -567,11 +567,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4.5
-  sprintSpeed: 7
-  jumpForce: 10
-  tapJumpForce: 5
-  groundDetectionDistance: 1.15
+  sprintSpeed: 6.5
+  jumpForce: 5
+  tapJumpForce: 3
+  groundDetectionDistance: 1.3
   acceleration: 25
+  airborneSteeringDampening: 0.4
   inventory: {fileID: 0}
 --- !u!33 &8180059034069554431
 MeshFilter:
@@ -642,8 +643,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.75
+  m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8138479108227616795
@@ -754,7 +755,7 @@ Transform:
   m_GameObject: {fileID: 8507593580094763560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

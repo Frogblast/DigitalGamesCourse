@@ -8,7 +8,7 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] private float sprintSpeed = 6.5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float tapJumpForce = 3f;
-    [SerializeField] private float groundDetectionDistance = 0.6f;
+    [SerializeField] private float groundDetectionDistance = 1.3f;
     [SerializeField] private float acceleration = 25f;
     [SerializeField] private float airborneSteeringDampening = 0.4f;
 
@@ -105,7 +105,7 @@ public class PlayerPhysics : MonoBehaviour
         Vector3 targetVelocity = moveDirection * targetSpeed;
 
         Vector3 currentVelocity = rb.velocity;
-        currentVelocity.y = 0; // Ignore y-velocity since we are moving horizontally
+    //    currentVelocity.y = 0; // Ignore y-velocity since we are moving horizontally
 
         // find the direction of the new input
         Vector3 velocityChange = (targetVelocity - currentVelocity);
@@ -132,6 +132,7 @@ public class PlayerPhysics : MonoBehaviour
             rb.velocity += Vector3.up * rb.velocity.y; // restore the y velocity for gravity
         }
     }
+
 
     internal void ChangeVelocity(Vector2 vector2)
     {

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2953238416900118053}
   m_Layer: 0
   m_Name: GoldBar
-  m_TagString: Untagged
+  m_TagString: GoldBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2561469807846735334}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2331092, y: 0.54, z: 3.7215712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,7 +133,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8, y: 0.22584872, z: 1.4}
+  m_Size: {x: 0.6, y: 0.22584872, z: 1.1}
   m_Center: {x: 0, y: 0.000000014901161, z: 0.000000029802322}
 --- !u!65 &2907168366990905966
 BoxCollider:
@@ -168,3 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01f999bfabf63e4bbe2793eea57aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 2
+  _Image: {fileID: 21300000, guid: 686aeedfa1db7d04384a873326ea0531, type: 3}

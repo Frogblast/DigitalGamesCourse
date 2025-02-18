@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : DamageBase
 {
+    [SerializeField] private int damageNrValue = 20; // Allows damageNr to be viewd through the inspector
+    [SerializeField]public override int damageNr => damageNrValue; // Damage towards player
+
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
@@ -22,4 +25,10 @@ public class Bullet : MonoBehaviour
         if (!isMoving) return;
         transform.position += direction * speed * Time.fixedDeltaTime;
     }
+
+    private void OnTriggerEnter(Collider other) // In collision with player
+    {
+        ApplyDamage(other.gameObject);
+    }
+
 }

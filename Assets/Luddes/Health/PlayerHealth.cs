@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -22,8 +23,10 @@ public class PlayerHealth : MonoBehaviour
         }    
     }
 
-    private void TakeDamage(int amount)
+    public void TakeDamage(int amount) // Typically a player might want to off-themselves through a console command, hence being public
     {
+
+        amount = Mathf.Abs(amount); // make sure the amount of damage taken is non-negative.
         if (currentHealth - amount > 0) // health shouldn't be negative
         {
             currentHealth -= amount; // Updates the health
@@ -34,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0;
             healthbar.SetHealth(0);
-            Debug.Log("   Y O U   D I E D");
+            EventManager.TriggerPlayerDeath();
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : DamageBase
 {
     [SerializeField] private int damageNrValue = 20; // Allows damageNr to be viewd through the inspector
-    [SerializeField]public override int damageNr => damageNrValue; // Damage towards player
+    public override int damageNr => damageNrValue; // Damage towards player
 
     [SerializeField]
     private float speed = 5f;

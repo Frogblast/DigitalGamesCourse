@@ -21,7 +21,6 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (collider.tag == "Key")
         {
-            Debug.Log("KeyBool is now true");
             isKeyPlaced = true;
         }
     }
@@ -30,7 +29,6 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (collider.tag == "GoldBar")
         {
-            Debug.Log("GoldBar Bool is now true");
             isGoldbarPlaced = true;
         }
     }

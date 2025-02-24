@@ -8359,7 +8359,7 @@ PrefabInstance:
       objectReference: {fileID: 1131283160}
     - target: {fileID: 5965106534409177571, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: mouseSensitivity
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5965106534409177571, guid: 34c82155bd6452046930f9dfe676307d, type: 3}
       propertyPath: hotbarslots.Array.data[0]

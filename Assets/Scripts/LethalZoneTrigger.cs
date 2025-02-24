@@ -6,7 +6,8 @@ public class LethalZoneTrigger : DamageBase
 
     [SerializeField] private int damageNrValue = 10000; // Allows damageNr to be viewd through the inspector
     public override int damageNr => damageNrValue; // Makes sure the player fully dies with high dmg output
-    private Collider _collider; //  <<-- Does this do anything?
+    private Collider _collider; //  <<-- Does this do anything? Yes this is the "this" collider which is used together with "other" when checking for collisions
+
 
     private void Awake()
     {

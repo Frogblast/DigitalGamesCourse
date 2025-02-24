@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : DamageBase
 {
     [SerializeField] private int damageNrValue = 20; // Allows damageNr to be viewd through the inspector
+    [SerializeField] private AudioSource hitSound;
     public override int damageNr => damageNrValue; // Damage towards player
 
     [SerializeField]
@@ -28,7 +29,11 @@ public class Bullet : DamageBase
 
     private void OnTriggerEnter(Collider other) // In collision with player
     {
-        ApplyDamage(other.gameObject);
+        if (other.CompareTag("Character"))
+        {
+            ApplyDamage(other.gameObject);
+            hitSound.Play();
+        }
     }
 
 }

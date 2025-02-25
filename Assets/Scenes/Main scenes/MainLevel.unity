@@ -6710,6 +6710,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8284897513115458772, guid: a7b24879c3684a9479d6a3bb07cd0f58, type: 3}
   m_PrefabInstance: {fileID: 546651514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &640141986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1206302762729445215, guid: 3ddd6564ab0d94040bccaed22d70b9e9, type: 3}
+  m_PrefabInstance: {fileID: 397596584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47402bcad9103a747a8f867252e9d11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &650568700
 Mesh:
   m_ObjectHideFlags: 0
@@ -8384,10 +8395,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Felix Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1088117885541132731, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
-      propertyPath: m_TagString
-      value: Character
-      objectReference: {fileID: 0}
     - target: {fileID: 2464149175866412288, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6
@@ -8428,6 +8435,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4732984758222981662, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 640141986}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

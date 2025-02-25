@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerCharacter playerCharacter;
     [SerializeField] private PlayerCamera playerCamera;
+    [SerializeField] private FelixInventory playerInventory;
     [Space]
     [SerializeField] private CameraSpring cameraSpring;
-   
-
 
     private PlayerInputActions _inputActions;
     
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
         playerCharacter.Initialize();
         playerCamera.Initialize(playerCharacter.GetCameraTarget());
+        // initalise playerInventory
 
         cameraSpring.Initialize();
     }
@@ -55,6 +56,23 @@ public class Player : MonoBehaviour
         };
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(deltaTime);
+
+        // this is stupid 
+        int selectedSlot = -1;
+        if (input.SelectSlot.WasPerformedThisFrame())
+        {
+            selectedSlot = GetSelectedInvSlot();
+        }
+
+        var inventoryInput = new InventoryInput
+        {
+            Drop = input.Drop.WasPerformedThisFrame(),
+            SelectedSlot = selectedSlot
+        };
+
+        playerInventory.HandleInput(inventoryInput);
+
+        // send the input of inventory to playerInv.Updatesomething
     }
 
     private void LateUpdate()
@@ -64,5 +82,13 @@ public class Player : MonoBehaviour
 
         playerCamera.UpdatePosition(cameraTarget);
         cameraSpring.UpdateSpring(deltaTime, cameraTarget.up);
+    }
+
+    private int GetSelectedInvSlot()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) return 0;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) return 1;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) return 2;
+        return -1;
     }
 }

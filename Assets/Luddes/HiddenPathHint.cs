@@ -5,13 +5,19 @@ using UnityEngine;
 public class HiddenPathHint : MonoBehaviour
 {
 
+    public GameObject hint;
 
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (other.tag == "Character")
-        {
-
+        if (collider.tag == "Character")
+        { 
+            Invoke("showHint", 20f); // shows the hint after 20 seconds of entering the invisible trap
         }
     }
+
+    private void showHint()
+    {
+        hint.SetActive(true);
+    }
+    
 }

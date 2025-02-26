@@ -80,8 +80,7 @@ public class PlayerInventoryScript : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("TRIGGER IS ACTIVE");
+    { 
         IInventoryItem item = other.GetComponent<IInventoryItem>();
         if (item != null)
         {
@@ -89,6 +88,25 @@ public class PlayerInventoryScript : MonoBehaviour
         }
     }
 
+
+    private void raydraw()
+    {
+        Vector3 rpos = Camera.main.transform.position;
+        Vector3 rdir = Camera.main.transform.forward;
+        RaycastHit hit = new RaycastHit();
+
+        float distance = 3f;
+
+        Debug.DrawRay(rpos, rdir * distance, Color.yellow, 0.1f);
+    }
+
+
+
+   /* private void Update()
+    {
+        raydraw();
+    }
+   */
 
 
 }

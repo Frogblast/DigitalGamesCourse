@@ -58,7 +58,6 @@ public class InventoryScript : MonoBehaviour
     public void DropItem(int hotbarSelected)
     {
         IInventoryItem item = mItems[hotbarSelected];
-        //mItems.Remove(item);
         mItems[hotbarSelected] = null;
         Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
         collider.enabled = true;

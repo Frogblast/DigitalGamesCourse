@@ -32,9 +32,9 @@ public class Key : MonoBehaviour, IInventoryItem
         GameObject camera = GameObject.Find("Main Camera");
         Vector3 dropPosition = camera.transform.position + camera.transform.forward * offset;
         float playerposition_y = camera.transform.position.y;
-        if (dropPosition.y < 0.5) // If player is looking at the ground while dropping, this makes sure the object spawns on the ground
+        if (dropPosition.y < playerposition_y-1) // If player is looking at the ground while dropping, this makes sure the object spawns on the ground
         {
-            dropPosition = new Vector3(dropPosition.x, 1f, dropPosition.z);
+            dropPosition = new Vector3(dropPosition.x, playerposition_y-1, dropPosition.z);
         }
         transform.position = dropPosition;
         gameObject.SetActive(true);

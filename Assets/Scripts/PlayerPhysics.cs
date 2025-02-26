@@ -39,9 +39,9 @@ public class PlayerPhysics : MonoBehaviour
     }
 
 
-    [Header ("Inventory")]
+    /*[Header ("Inventory")]
     public InventoryScript inventory;
-
+    */
     private void OnEnable()
     {
         EventManager.OnPlayerDeath += KillPlayer;
@@ -157,6 +157,7 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         IInventoryItem item = other.GetComponent<IInventoryItem>();
@@ -164,6 +165,6 @@ public class PlayerPhysics : MonoBehaviour
         {
             inventory.AddItem(item);
         }
-    }
+    }*/
 
 }

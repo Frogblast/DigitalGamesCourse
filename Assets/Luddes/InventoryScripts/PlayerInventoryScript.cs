@@ -81,6 +81,7 @@ public class PlayerInventoryScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("TRIGGER IS ACTIVE");
         IInventoryItem item = other.GetComponent<IInventoryItem>();
         if (item != null)
         {

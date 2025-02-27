@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class PlayerInventoryScript : MonoBehaviour
 
 
     private int hotbarSelected = 0;
+    private float distance = 3f;
+    public GameObject pickupText;
     [SerializeField] private GameObject[] hotbarslots = new GameObject[5];
 
     [SerializeField] private InventoryScript inventoryscript;
@@ -88,25 +91,65 @@ public class PlayerInventoryScript : MonoBehaviour
         }
     }
 
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
 
-    private void raydraw()
+        rayItemPickup();
+    }
+
+
+    private void rayItemPickup()
+    {
+        Vector3 rpos = Camera.main.transform.position;
+        Vector3 rdir = Camera.main.transform.forward;
+        RaycastHit hit;
+
+        Ray ray = new Ray(rpos, rdir);
+
+        if (Physics.Raycast(ray, out hit, distance))
+        {
+            
+            IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+            if (item != null)
+            {
+                inventoryscript.AddItem(item);
+                pickupText.SetActive(false);
+            }
+
+        }
+
+    }
+
+
+    private void DebugRay()
     {
         Vector3 rpos = Camera.main.transform.position;
         Vector3 rdir = Camera.main.transform.forward;
         RaycastHit hit = new RaycastHit();
 
-        float distance = 3f;
+        Ray ray = new Ray(rpos, rdir);
 
         Debug.DrawRay(rpos, rdir * distance, Color.yellow, 0.1f);
+
+        if (Physics.Raycast(ray, out hit, distance))
+        {
+            IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+            if (item != null)
+            {
+                pickupText.SetActive(true);
+            }
+        }
+
+
     }
 
 
 
-   /* private void Update()
+    private void Update()
     {
-        raydraw();
+        DebugRay();
     }
-   */
+   
 
 
 }

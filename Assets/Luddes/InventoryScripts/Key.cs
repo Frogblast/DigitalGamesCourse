@@ -45,14 +45,16 @@ public class Key : MonoBehaviour, IInventoryItem
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(ray, out hit, distance))
         {
-            transform.position = hit.point + new Vector3(0, 0.5f, 0);
             gameObject.SetActive(true);
+            transform.position = hit.point + new Vector3(0, 0.5f, 0);
+            
         }
         else
         {
             Vector3 dropPosition = ray.GetPoint(distance);
-            transform.position = dropPosition;
             gameObject.SetActive(true);
+            transform.position = dropPosition;
+            
         }
     }
 }

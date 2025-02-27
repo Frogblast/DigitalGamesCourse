@@ -126,10 +126,17 @@ public class PlayerInventoryScript : MonoBehaviour
         Vector3 rpos = Camera.main.transform.position;
         Vector3 rdir = Camera.main.transform.forward;
         RaycastHit hit = new RaycastHit();
-
         Ray ray = new Ray(rpos, rdir);
 
         Debug.DrawRay(rpos, rdir * distance, Color.yellow, 0.1f);
+    }
+
+    private void DisplayPickUptxt()
+    {
+        Vector3 rpos = Camera.main.transform.position;
+        Vector3 rdir = Camera.main.transform.forward;
+        RaycastHit hit = new RaycastHit();
+        Ray ray = new Ray(rpos, rdir);
 
         if (Physics.Raycast(ray, out hit, distance))
         {
@@ -138,9 +145,15 @@ public class PlayerInventoryScript : MonoBehaviour
             {
                 pickupText.SetActive(true);
             }
+            else
+            {
+                pickupText.SetActive(false);
+            }
         }
-
-
+        else
+        {
+            pickupText.SetActive(false);
+        }
     }
 
 
@@ -148,6 +161,7 @@ public class PlayerInventoryScript : MonoBehaviour
     private void Update()
     {
         DebugRay();
+        DisplayPickUptxt();
     }
    
 

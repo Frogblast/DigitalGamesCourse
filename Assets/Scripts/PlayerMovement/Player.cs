@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerCharacter playerCharacter;
     [SerializeField] private PlayerCamera playerCamera;
-    [SerializeField] private FelixInventory playerInventory;
+   // [SerializeField] private FelixInventory playerInventory;
     [Space]
     [SerializeField] private CameraSpring cameraSpring;
 
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
             SelectedSlot = selectedSlot
         };
 
-        playerInventory.HandleInput(inventoryInput);
+       // playerInventory.HandleInput(inventoryInput);
 
         // send the input of inventory to playerInv.Updatesomething
     }

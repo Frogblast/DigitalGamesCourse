@@ -16267,14 +16267,14 @@ MonoBehaviour:
     - Jumping: Space (Hold for high-jump)
 
     -
-    Pick up item: Walk on it
+    Pick up item: E
 
     - Drop item: Q
 
-    - Inventory: Numbers 1, 2,
-    3, 4, 5
+    - Inventory: Numbers 1, 2, 3, 4, 5
 
-    - Toggle colorblind filters: F1'
+    -
+    Toggle colorblind filters: F1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19047,6 +19047,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 690514986948943924, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: sensitivity
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1088117885541132731, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: m_Name
       value: Felix Player

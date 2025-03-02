@@ -5694,7 +5694,19 @@ MonoBehaviour:
     m_ActionId: 21c4fc2d-4ec7-455b-9180-978f68d76410
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 358228143}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Walk
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bde71b41-b444-4ec6-a277-24a443da5f63
     m_ActionName: Player/Sprint[/Keyboard/leftShift]
   - m_PersistentCalls:
@@ -19599,6 +19611,10 @@ PrefabInstance:
     - target: {fileID: 2464149175866412288, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894669315007097023, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: walkingMultiplier
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4732984758222981662, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -45,14 +42,14 @@ public class Player : MonoBehaviour
         // get character input and update
         var characterInput = new CharacterInput
         {
-            Rotation    = playerCamera.transform.rotation,
-            Move        = input.Move.ReadValue<Vector2>(),
-            Jump        = input.Jump.WasPressedThisFrame(),
+            Rotation = playerCamera.transform.rotation,
+            Move = input.Move.ReadValue<Vector2>(),
+            Jump = input.Jump.WasPressedThisFrame(),
             JumpSustain = input.Jump.IsPressed(),
-            Crouch      = input.Crouch.WasPressedThisFrame()
+            Crouch = input.Crouch.WasPressedThisFrame()
                 ? CrouchInput.Toogle
                 : CrouchInput.None,
-            Interact    = input.Interact.WasPressedThisFrame()
+            Interact = input.Interact.WasPressedThisFrame()
         };
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(deltaTime);
@@ -98,5 +95,17 @@ public class Player : MonoBehaviour
         ColorBlindHandler handler = transform.GetComponentInChildren<ColorBlindHandler>();
         handler.EnableColorBlindMode();
         handler.ChangeMode();
+    }
+
+    public void Walk(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            playerCharacter.walking = true;
+        }
+        else if(context.canceled)
+        {
+            playerCharacter.walking = false;
+        }
     }
 }

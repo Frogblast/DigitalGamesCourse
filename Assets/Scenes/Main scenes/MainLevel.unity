@@ -5698,7 +5698,19 @@ MonoBehaviour:
     m_ActionId: bde71b41-b444-4ec6-a277-24a443da5f63
     m_ActionName: Player/Sprint[/Keyboard/leftShift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 358228143}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ToggleColorBlindMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a4449c31-c4ef-4aac-8a96-5aa969f2e536
     m_ActionName: Player/ActivateColorBlindMode[/Keyboard/f1]
   - m_PersistentCalls:
@@ -5816,6 +5828,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 640141986}
   maxHealth: 100
+--- !u!114 &358228143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7846879740504959962, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+  m_PrefabInstance: {fileID: 1089310821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358228136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83c9ce0535d0c24ea6ebc287f5cb241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &365842982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4220934241292132250, guid: 3c2a0c82edb5fde409ab6fbf287561ed, type: 3}
@@ -19591,6 +19614,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1861678648515605033, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2070168551}
+    - targetCorrespondingSourceObject: {fileID: 1832168453367266077, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1913225512}
+    - targetCorrespondingSourceObject: {fileID: 1832168453367266077, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1913225515}
   m_SourcePrefab: {fileID: 100100000, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
 --- !u!1 &1089711155
 GameObject:
@@ -35235,6 +35264,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4220934241292132250, guid: 3c2a0c82edb5fde409ab6fbf287561ed, type: 3}
   m_PrefabInstance: {fileID: 1923154197}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1913225510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1832168453367266077, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+  m_PrefabInstance: {fileID: 1089310821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1913225512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913225510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa26b0231c812794e959311b2110ee3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1913225515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913225510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae42c8f78c60684aab6be6c18bd7a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  colorblindShader: {fileID: 4800000, guid: b35b8f7ae8cf168488129d5f5f39ebf4, type: 3}
 --- !u!1001 &1917009731
 PrefabInstance:
   m_ObjectHideFlags: 0

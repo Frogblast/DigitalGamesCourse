@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(deltaTime);
 
-        // this is stupid 
+        // this is stupid (vad betyder den här kommentaren???)
         int selectedSlot = -1;
         if (input.SelectSlot.WasPerformedThisFrame())
         {
@@ -90,5 +90,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) return 1;
         if (Input.GetKeyDown(KeyCode.Alpha3)) return 2;
         return -1;
+    }
+
+    public void ToggleColorBlindMode(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        ColorBlindHandler handler = transform.GetComponentInChildren<ColorBlindHandler>();
+        handler.EnableColorBlindMode();
+        handler.ChangeMode();
     }
 }

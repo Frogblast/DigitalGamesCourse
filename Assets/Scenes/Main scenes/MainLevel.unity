@@ -15957,19 +15957,21 @@ MonoBehaviour:
     - Looking
     around: Mouse
 
-    - Walking: WASD
+    - Movement: WASD
 
-    - Jumping: Space (Hold for high-jump)
+    - Slow movment: hold Left Shift
 
     -
-    Pick up item: E
+    Jumping: Space (Hold for high-jump)
 
-    - Drop item: Q
+    - Pick up item: E
+
+    - Drop item:
+    Q
 
     - Inventory: Numbers 1, 2, 3, 4, 5
 
-    -
-    Toggle colorblind filters: F1'
+    - Toggle colorblind filters: F1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16091,7 +16093,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898650424}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16099,7 +16101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.79, y: 3.79}
+  m_AnchoredPosition: {x: -3.79, y: 4.4}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &899616437 stripped

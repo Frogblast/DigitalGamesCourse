@@ -1,16 +1,20 @@
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.WSA;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
 
     public Healthbar healthbar;
+    public GameObject bloodScreen;
     [SerializeField] private int maxHealth;
     private int currentHealth;
     
     void Start()
     {
+
         currentHealth = maxHealth; // Sets the health to a max value
         healthbar.SetMaxHealth(maxHealth);   
     }
@@ -23,9 +27,16 @@ public class PlayerHealth : MonoBehaviour
         }    
     }
 
+
+    private void showBloodScreen()
+    {
+        bloodScreen.SetActive(true);
+        bloodScreen.GetComponent<Animation>().Play();
+    }
+
     public void TakeDamage(int amount) // Typically a player might want to off-themselves through a console command, hence being public
     {
-
+        showBloodScreen();
         amount = Mathf.Abs(amount); // make sure the amount of damage taken is non-negative.
         if (currentHealth - amount > 0) // health shouldn't be negative
         {
@@ -36,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             currentHealth = 0;
-            healthbar.SetHealth(0);
+            healthbar.SetHealth(currentHealth);
             EventManager.TriggerPlayerDeath();
         }
     }

@@ -1477,6 +1477,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2918221721902228969, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
+      propertyPath: gate
+      value: 
+      objectReference: {fileID: 906984245}
+    - target: {fileID: 2918221721902228969, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1089310822}
+    - target: {fileID: 2918221721902228969, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
+      propertyPath: secondaryCamera
+      value: 
+      objectReference: {fileID: 906984246}
     - target: {fileID: 3818280902109734323, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
       propertyPath: m_Size.x
       value: 1.4
@@ -16324,6 +16336,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 911364978}
+    - target: {fileID: 2998464642936579681, guid: 3bb03ee0f386bfc4b907585ba8bb0e31, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3008683839805561733, guid: 3bb03ee0f386bfc4b907585ba8bb0e31, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -16921,6 +16937,16 @@ PrefabInstance:
       addedObject: {fileID: 505333328}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb03ee0f386bfc4b907585ba8bb0e31, type: 3}
+--- !u!1 &906984245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 322631529923540826, guid: 3bb03ee0f386bfc4b907585ba8bb0e31, type: 3}
+  m_PrefabInstance: {fileID: 906984244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &906984246 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6615725449255005813, guid: 3bb03ee0f386bfc4b907585ba8bb0e31, type: 3}
+  m_PrefabInstance: {fileID: 906984244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &911364978
 Mesh:
   m_ObjectHideFlags: 0
@@ -19697,6 +19723,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1913225515}
   m_SourcePrefab: {fileID: 100100000, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+--- !u!20 &1089310822 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3385008942693779555, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+  m_PrefabInstance: {fileID: 1089310821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1089711155
 GameObject:
   m_ObjectHideFlags: 0

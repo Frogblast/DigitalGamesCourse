@@ -1072,7 +1072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 6501681787723350654}
-  bloodScreen: {fileID: 377230128}
   maxHealth: 100
 --- !u!114 &1887460059
 MonoBehaviour:

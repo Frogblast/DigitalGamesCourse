@@ -15,7 +15,7 @@ public class InventoryScript : MonoBehaviour
     public event EventHandler<InventoryEventArgs> ItemRemoved;
 
 
-    internal bool slotIsEmpty(int hotbarSelected) 
+    internal bool slotIsEmpty(int hotbarSelected) // Checks if the inventorylist is empty at specific index
     {
         return mItems[hotbarSelected] == null;    
 
@@ -27,24 +27,23 @@ public class InventoryScript : MonoBehaviour
     {
         bool canPickup = false;
         int i = 0;
-        for (i = 0; i < SLOTS; i++)
+        for (i = 0; i < SLOTS; i++) // Checks if there is an avaliable slot
         {
             if (mItems[i] == null){
                 canPickup = true;
                 break;
             }
         }
-        //if (mItems.Length < SLOTS)
-        if (canPickup)
+
+        if (canPickup) // If slot avaliable, then add item
         {
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
-            if (collider.enabled)
+            if (collider.enabled) // If collider is true, then set it to false while in inventory
             {
                 collider.enabled = false;
-                //mItems.Add(item);
-                mItems[i] = item;
+                mItems[i] = item; // Add item to the list
 
-                item.OnPickup();
+                item.OnPickup(); // Calls the logic for what happens when picking up this specific item
 
                 if (ItemAdded != null)
                 {
@@ -57,12 +56,12 @@ public class InventoryScript : MonoBehaviour
 
     public void DropItem(int hotbarSelected)
     {
-        IInventoryItem item = mItems[hotbarSelected];
-        mItems[hotbarSelected] = null;
+        IInventoryItem item = mItems[hotbarSelected]; // Select what item from the list to drop
+        mItems[hotbarSelected] = null; // Remove the item from the list
         Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
-        collider.enabled = true;
+        collider.enabled = true; // Enable the collider again before dropping it
 
-        item.OnDrop();
+        item.OnDrop(); // Calls the logic for what happens when dropping this specific item
 
 
         if(ItemRemoved != null)

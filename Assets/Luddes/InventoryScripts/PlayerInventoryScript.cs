@@ -1,9 +1,10 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
-// This script is the only script that needs to be on a player
+// This script is the only script that needs to be on a player for inventory
 public class PlayerInventoryScript : MonoBehaviour
 {
 
@@ -11,16 +12,16 @@ public class PlayerInventoryScript : MonoBehaviour
     private int hotbarSelected = 0;
     private float distance = 3f;
     public GameObject pickupText;
-    [SerializeField] private GameObject[] hotbarslots = new GameObject[5];
+    [SerializeField] private GameObject[] hotbarslots = new GameObject[5]; // Inventory size and contains all UI slot gameobjects
 
-    [SerializeField] private InventoryScript inventoryscript;
-    [SerializeField] private HUD hud;
+    [SerializeField] private InventoryScript inventoryscript; // For inventory logic
+    [SerializeField] private HUD hud; // For UI
 
 
     public void OnHotbar_1(InputAction.CallbackContext context)
     {
-        hotbarSelected = 0;
-        hotbarChangeItem();
+        hotbarSelected = 0; // Update what slot is selected
+        hotbarChangeItem(); // Update UI
     }
 
     public void OnHotbar_2(InputAction.CallbackContext context)
@@ -48,35 +49,41 @@ public class PlayerInventoryScript : MonoBehaviour
     }
 
 
-    private void hotbarChangeItem()
+    private void hotbarChangeItem() // Changes the UI to convey what item the player is "holding"
     {
         inventoryscript.hotbarSelected = hotbarSelected;
 
-        foreach (GameObject slot in hotbarslots)
+        foreach (GameObject slot in hotbarslots) // Goes through all slots
         {
             Vector3 scale;
+            Color color;
 
             if (slot == hotbarslots[hotbarSelected])
             {
                 scale = new Vector3(1.1f, 1.1f, 1.1f);
+                color = new Color(75f/255, 204f/255, 110f/255,1f);
             }
             else
             {
                 scale = new Vector3(1f, 1f, 1f);
+                color = new Color(91f/255, 91f/255, 91f/255,1f);
             }
             slot.transform.localScale = scale;
+            slot.GetComponent<Image>().color = color;
+
         }
 
     }
 
-    public void OnDropItem(InputAction.CallbackContext context)
+    public void OnDropItem(InputAction.CallbackContext context) // Drops item in inventory with "Q"
     {
-        if (context.started && !inventoryscript.slotIsEmpty(hotbarSelected))
+        if (context.started && !inventoryscript.slotIsEmpty(hotbarSelected)) // Checks that the inventoryslot is non-empty
         {
+            // Updates what slot is selected to the other scripts
             hud.selectedSlot = hotbarSelected;
             inventoryscript.hotbarSelected = hotbarSelected;
 
-            inventoryscript.DropItem(hotbarSelected);
+            inventoryscript.DropItem(hotbarSelected); // Calls the for the inventory to drop the item in the equipped slot
         }
 
     }
@@ -91,13 +98,13 @@ public class PlayerInventoryScript : MonoBehaviour
         }
     }*/
 
-    public void OnPickUp(InputAction.CallbackContext context)
+    public void OnPickUp(InputAction.CallbackContext context) // Pick up object on "E"
     {
         rayItemPickup();
     }
 
 
-    private void rayItemPickup()
+    private void rayItemPickup() // Spawns one ray and if it hits a pickupable object, it adds it to the inventory
     {
         Vector3 rpos = Camera.main.transform.position;
         Vector3 rdir = Camera.main.transform.forward;
@@ -120,7 +127,7 @@ public class PlayerInventoryScript : MonoBehaviour
     }
 
 
-    private void DebugRay()
+    private void DebugRay() // Make the ray visible for debugging
     {
         Vector3 rpos = Camera.main.transform.position;
         Vector3 rdir = Camera.main.transform.forward;
@@ -130,7 +137,7 @@ public class PlayerInventoryScript : MonoBehaviour
         Debug.DrawRay(rpos, rdir * distance, Color.yellow, 0.1f);
     }
 
-    private void DisplayPickUptxt()
+    private void DisplayPickUptxt() // Displays a text, only if the ray hits a pickupable object
     {
         Vector3 rpos = Camera.main.transform.position;
         Vector3 rdir = Camera.main.transform.forward;
@@ -159,7 +166,7 @@ public class PlayerInventoryScript : MonoBehaviour
 
     private void Update()
     {
-        DebugRay();
+        //DebugRay;
         DisplayPickUptxt();
     }
    

@@ -1,14 +1,9 @@
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.WSA;
-using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
 
     public Healthbar healthbar;
-    public GameObject bloodScreen;
     [SerializeField] private int maxHealth;
     private int currentHealth;
     
@@ -19,24 +14,9 @@ public class PlayerHealth : MonoBehaviour
         healthbar.SetMaxHealth(maxHealth);   
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K)) // Just a quick way to insert self-harm >:)
-        {
-            TakeDamage(20);
-        }    
-    }
-
-
-    private void showBloodScreen()
-    {
-        bloodScreen.SetActive(true);
-        bloodScreen.GetComponent<Animation>().Play();
-    }
 
     public void TakeDamage(int amount) // Typically a player might want to off-themselves through a console command, hence being public
     {
-        showBloodScreen();
         amount = Mathf.Abs(amount); // make sure the amount of damage taken is non-negative.
         if (currentHealth - amount > 0) // health shouldn't be negative
         {

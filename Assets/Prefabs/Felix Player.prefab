@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCharacter: {fileID: 2894669315007097023}
   playerCamera: {fileID: 690514986948943924}
+  playerInventory: {fileID: 2177609463939659486}
   cameraSpring: {fileID: 9147398898417280579}
 --- !u!1 &1688148224716999743
 GameObject:
@@ -270,7 +271,7 @@ Camera:
   field of view: 70
   orthographic: 0
   orthographic size: 5
-  m_Depth: 1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -427,8 +428,6 @@ MonoBehaviour:
   standCameraTargetHeight: 0.854
   crouchCameraTargetHeight: 0.667
   playerAudio: {fileID: 6366799578855067306}
-  walking: 0
-  walkingMultiplier: 0.5
 --- !u!54 &3495018581762325245
 Rigidbody:
   m_ObjectHideFlags: 0

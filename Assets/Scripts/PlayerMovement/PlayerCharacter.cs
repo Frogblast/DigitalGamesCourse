@@ -305,7 +305,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
         Vector3 rayDirection = Camera.main.transform.forward;
         float rayDistance = 5f; // Interaction distance make serialized if I want later
 
-        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red, 0.1f);
+       // Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red, 0.1f);
 
         Ray ray = new Ray(rayOrigin, rayDirection);
         RaycastHit hit;

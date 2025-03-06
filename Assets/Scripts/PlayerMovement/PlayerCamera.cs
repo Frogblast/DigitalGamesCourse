@@ -21,15 +21,8 @@ public class PlayerCamera : MonoBehaviour
 
     public void UpdateRotation(CameraInput input )
     {
-        // Get the input rotation in x and y 
-        _eulerAngles.x -= input.Look.y * sensitivity;
-        _eulerAngles.y += input.Look.x * sensitivity;
-
-        // Clamp the vertical x rotation of the camera input to prevent flipping
-        _eulerAngles.x = Mathf.Clamp(_eulerAngles.x, -89f, 89f);
-
-        // Apply rotation using Quaternion of both x and y
-        transform.rotation = Quaternion.Euler(_eulerAngles);
+        _eulerAngles += new Vector3(-input.Look.y, input.Look.x) * sensitivity;
+        transform.eulerAngles = _eulerAngles;
     }
 
     public void UpdatePosition(Transform target)

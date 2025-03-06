@@ -15798,32 +15798,30 @@ MonoBehaviour:
 
     1. Find the key and the goldbar
 
-    2. Find the escape
-    route
-
-    3. Find the treasure and escape
+    2. Find the treasure
+    and escape
 
 
     How To Play:
 
-    - Looking
-    around: Mouse
+    - Look around: Mouse
 
     - Movement: WASD
 
-    - Slow movment: hold Left Shift
-
     -
-    Jumping: Space (Hold for high-jump)
+    Walk mode: Hold Left Shift
+
+    - Jump: Space
 
     - Pick up item: E
 
-    - Drop item:
-    Q
+    - Drop
+    item: Q
 
     - Inventory: Numbers 1, 2, 3, 4, 5
 
-    - Toggle colorblind filters: F1'
+    - Toggle colorblind filters:
+    F1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

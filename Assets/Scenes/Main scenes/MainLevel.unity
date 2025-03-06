@@ -19280,7 +19280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1088117885541132731, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 1688148224716999743, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: m_IsActive
@@ -39325,6 +39325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1681463351059201416, guid: 062258c36fad75644a8259e16c8ce227, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3917821722205976784, guid: 062258c36fad75644a8259e16c8ce227, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2454
@@ -39348,6 +39352,10 @@ PrefabInstance:
     - target: {fileID: 6421413432252497852, guid: 062258c36fad75644a8259e16c8ce227, type: 3}
       propertyPath: m_Name
       value: Stair Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996926012440476301, guid: 062258c36fad75644a8259e16c8ce227, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -39428,6 +39436,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 940422340}
     m_Modifications:
+    - target: {fileID: 1380240382038556700, guid: db6b678f32929ba4aae9bd18941850e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3644950324179501150, guid: db6b678f32929ba4aae9bd18941850e9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1

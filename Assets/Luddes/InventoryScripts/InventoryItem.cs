@@ -3,6 +3,8 @@ using UnityEngine;
 
 public interface IInventoryItem
 {
+
+    Vector3 spawnposition { get; }
     string Name { get; }
     Sprite Image { get; }
 

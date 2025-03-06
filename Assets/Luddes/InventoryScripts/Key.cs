@@ -2,7 +2,23 @@ using UnityEngine;
 
 public class Key : MonoBehaviour, IInventoryItem
 {
-    [SerializeField] private float offset = 2f; 
+    [SerializeField] private float offset = 2f;
+    public Vector3 spwn_position;
+
+    private void Start()
+    {
+        spwn_position = transform.position;
+    }
+
+    public Vector3 spawnposition
+    {
+        get
+        {
+            return spwn_position;
+        }
+    }
+
+
     public string Name
     {
         get
@@ -46,7 +62,7 @@ public class Key : MonoBehaviour, IInventoryItem
         if (Physics.Raycast(ray, out hit, distance))
         {
             gameObject.SetActive(true);
-            transform.position = hit.point + new Vector3(0, 0.5f, 0);
+            transform.position = hit.point + new Vector3(0, 0.2f, 0);
             
         }
         else

@@ -3,12 +3,14 @@ using UnityEngine;
 public class OutOfBounds : MonoBehaviour
 {
 
-
+    // If any specified object enters this trigger, it will be respawned in someplace of the level
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<IInventoryItem>() != null)
+        if (other.gameObject.GetComponent<IInventoryItem>() != null) // Checks if object is a pickup item
         {
-            other.gameObject.transform.position = new Vector3(0, 0.5f, 0);
+            Vector3 respawn_position = other.GetComponent<IInventoryItem>().spawnposition; // Gets the original spawn position of the object
+            other.gameObject.transform.position = respawn_position; // Applys position
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero; // resets it's speed to 0 (it accumulates speed as it falls out of bounds)
         }
     }
 }

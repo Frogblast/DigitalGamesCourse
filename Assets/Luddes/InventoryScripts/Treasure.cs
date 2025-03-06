@@ -3,6 +3,23 @@ using UnityEngine;
 public class Treasure : MonoBehaviour, IInventoryItem
 {
     [SerializeField] private float offset = 2f;
+
+    public Vector3 spwn_position;
+
+    private void Start()
+    {
+        spwn_position = transform.position;
+    }
+
+    public Vector3 spawnposition
+    {
+        get
+        {
+            return spwn_position;
+        }
+    }
+
+
     public string Name
     {
         get

@@ -12,6 +12,9 @@ public class PuzzleTrigger : MonoBehaviour
     public Camera secondaryCamera;
     public GameObject gate;
 
+    [SerializeField] private GameObject goldStaute;
+    [SerializeField] private GameObject keyStatue;
+
     public float gateRaiseHeight = 5f;
     public float animationDuration = 2f;
 
@@ -25,12 +28,25 @@ public class PuzzleTrigger : MonoBehaviour
         GoldBarTrigger.EnteredTrigger.AddListener(OnGoldbarTriggerEntered);
     }
 
+    void rotateKeyStatue() // Rotates the statue to indicate a correct choice
+    {
+        keyStatue.transform.eulerAngles = new Vector3(0, 0, -90);
+    }
+
+    void RotateGoldStatue()
+    {
+        goldStaute.transform.eulerAngles = new Vector3(0, 0, -90);
+    }
+
 
     void OnKeyTriggerEntered(Collider collider)
     {
         if (collider.tag == "Key")
         {
             isKeyPlaced = true;
+
+            rotateKeyStatue(); 
+            puzzleSolved();
         }
     }
 
@@ -39,16 +55,32 @@ public class PuzzleTrigger : MonoBehaviour
         if (collider.tag == "GoldBar")
         { 
             isGoldbarPlaced = true;
+
+            RotateGoldStatue();
+            puzzleSolved(); // Begin animation if puzzle is solved
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (isKeyPlaced == true && isGoldbarPlaced == true)
         {
             StartCoroutine(HandleUnlock());
             
         }
+    }*/
+
+    void puzzleSolved() // If puzzle is solved, this starts the animation
+    {
+        if (isGoldbarPlaced == true && isKeyPlaced == true)
+        {
+            StartCoroutine(HandleUnlock());
+        }
+    }
+
+    private void disableBarrier() // Removes the barrier around chest
+    {
+        gameObject.SetActive(false);
     }
 
     // little animation
@@ -76,7 +108,7 @@ public class PuzzleTrigger : MonoBehaviour
         secondaryCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true); // switch back
 
-        gameObject.SetActive(false);
+        disableBarrier();
 
     }
 

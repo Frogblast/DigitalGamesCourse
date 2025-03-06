@@ -15,7 +15,7 @@ public class PlayerInventoryScript : MonoBehaviour
     [SerializeField] private GameObject[] hotbarslots = new GameObject[5]; // Inventory size and contains all UI slot gameobjects
 
     [SerializeField] private InventoryScript inventoryscript; // For inventory logic
-    [SerializeField] private HUD hud; // For UI
+    [SerializeField] private HUD toolbar; // For UI
 
 
     public void OnHotbar_1(InputAction.CallbackContext context)
@@ -53,7 +53,7 @@ public class PlayerInventoryScript : MonoBehaviour
     {
         inventoryscript.hotbarSelected = hotbarSelected;
 
-        foreach (GameObject slot in hotbarslots) // Goes through all slots
+        foreach (GameObject slot in hotbarslots) // Goes through all slots (Actually borders)
         {
             Vector3 scale;
             Color color;
@@ -61,15 +61,15 @@ public class PlayerInventoryScript : MonoBehaviour
             if (slot == hotbarslots[hotbarSelected])
             {
                 scale = new Vector3(1.1f, 1.1f, 1.1f);
-                color = new Color(75f/255, 204f/255, 110f/255,1f);
+                color = new Color(75f/255, 204f/255, 110f/255,1f); // show border with a green color
             }
             else
             {
                 scale = new Vector3(1f, 1f, 1f);
-                color = new Color(91f/255, 91f/255, 91f/255,1f);
+                color = new Color(1f,1f,1f,0f); // Make border fully transparent
             }
-            slot.transform.localScale = scale;
-            slot.GetComponent<Image>().color = color;
+            slot.transform.localScale = scale; //apply
+            slot.GetComponent<Image>().color = color; //apply
 
         }
 
@@ -80,7 +80,7 @@ public class PlayerInventoryScript : MonoBehaviour
         if (context.started && !inventoryscript.slotIsEmpty(hotbarSelected)) // Checks that the inventoryslot is non-empty
         {
             // Updates what slot is selected to the other scripts
-            hud.selectedSlot = hotbarSelected;
+            toolbar.selectedSlot = hotbarSelected;
             inventoryscript.hotbarSelected = hotbarSelected;
 
             inventoryscript.DropItem(hotbarSelected); // Calls the for the inventory to drop the item in the equipped slot

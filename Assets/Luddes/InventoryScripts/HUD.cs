@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
         foreach (Transform slot in transform)
         {
             // Border... Image
-            Image image = slot.GetChild(0).GetComponent<Image>();
+            Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
 
             // we find first empty slot in UI
             if (!image.enabled)
@@ -35,7 +35,7 @@ public class HUD : MonoBehaviour
     private void InventoryScript_ItemRemoved(object sender, InventoryEventArgs e)
     {
         Transform slot = transform.GetChild(selectedSlot);
-        Image image = slot.GetChild(0).GetComponent<Image>();
+        Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
 
                 image.enabled = false;
                 image.sprite = null;

@@ -5,11 +5,22 @@ public class Treasure : MonoBehaviour, IInventoryItem
     [SerializeField] private float offset = 2f;
 
     public Vector3 spwn_position;
+    private Quaternion spwn_rotation;
 
     private void Start()
     {
         spwn_position = transform.position;
+        spwn_rotation = transform.rotation;
     }
+
+    public Quaternion spawnrotation
+    {
+        get
+        {
+            return spwn_rotation;
+        }
+    }
+
 
     public Vector3 spawnposition
     {

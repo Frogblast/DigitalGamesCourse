@@ -11,11 +11,11 @@ public class Bomb : DamageBase
     [SerializeField] private KinematicCharacterMotor movescript;
 
     [Header("Bomb settings")]
-    public int damage = 10; // The explosion damage on the player (or anything with health)
-    public float force = 5f; // The pushback of the explosion
-    public float delay = 2f; // For when the explosion is triggered
+    public int damage = 40; // The explosion damage on the player (or anything with health)
+    public float force = 650f; // The pushback of the explosion
+    public float delay = 1f; // For when the explosion is triggered
     public float radius = 5f; // The radius of the explosion
-    public float knockDuration = 2f; // Time in seconds the player is knocked
+    public float knockDuration = 1f; // Time in seconds the player is knocked
 
     private float countdown;
     private bool isKnockedBack = false;

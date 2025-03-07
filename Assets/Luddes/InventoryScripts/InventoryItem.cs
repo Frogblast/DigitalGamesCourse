@@ -3,6 +3,9 @@ using UnityEngine;
 
 public interface IInventoryItem
 {
+
+    Quaternion spawnrotation { get; }
+    Vector3 spawnposition { get; }
     string Name { get; }
     Sprite Image { get; }
 

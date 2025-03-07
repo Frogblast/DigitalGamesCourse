@@ -56,6 +56,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
     [Space]
     [SerializeField] private PlayerAudio playerAudio;
 
+    public bool walking = false;
+    [Space]
+    [Range(.1f,.9f)] [SerializeField] private float walkingMultiplier = 0.5f;
+
     private Stance _stance;
 
     private Quaternion _requestedRotation;
@@ -134,6 +138,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
     // Acceleration both on ground and in the air and differentiate between walk and crouch speed
     public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
     {
+        float multiplier = walking ? walkingMultiplier : 1;
+
         // if on ground 
         if (motor.GroundingStatus.IsStableOnGround)
         {
@@ -151,9 +157,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
                 : crouchSpeed;
             var response = _stance is Stance.Stand
                 ? walkResponse
-                : crouchResponse; 
+                : crouchResponse;
             // smooth acceleration on movement
-            var targetVelocity = groundedMovement * speed;
+
+            var targetVelocity = groundedMovement * speed * multiplier;
 
             if (targetVelocity.magnitude > 0f) // bandaid audio for walking
                 playerAudio.PlayWalkSound();
@@ -184,7 +191,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
                     planeNormal: motor.CharacterUp
                 );
 
-                var movementForce = planarMovement * airAcceleration * deltaTime;
+                var movementForce = planarMovement * airAcceleration * deltaTime * multiplier;
                 var targetPlanarVelocity = currentPlanarVelocity + movementForce;
                 targetPlanarVelocity = Vector3.ClampMagnitude(targetPlanarVelocity, airSpeed);
                 currentVelocity += targetPlanarVelocity - currentPlanarVelocity;

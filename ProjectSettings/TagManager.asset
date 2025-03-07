@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Character
   - Boulder
+  - Key
+  - GoldBar
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Item
   - Player
   - whatIsGrounded
-  - 
+  - PostProcessing
   - 
   - 
   - 

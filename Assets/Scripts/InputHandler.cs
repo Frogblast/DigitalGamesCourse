@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
 
     private PlayerPhysics playerPhysics;
 
+    /*
     [SerializeField]
     private InventoryScript inventoryscript;
     [SerializeField]
@@ -31,7 +32,7 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField]
     private HUD hud;
-
+    */
 
     private void Start()
     {
@@ -80,7 +81,7 @@ public class InputHandler : MonoBehaviour
         playerPhysics.Jump(context);
         playerAudio.PlayJumpSound();
     }
-
+    /*
     public void OnHotbar_1(InputAction.CallbackContext context)
     {
 
@@ -148,6 +149,7 @@ public class InputHandler : MonoBehaviour
         }
 
     }
+    */
 
     public void Sprint(InputAction.CallbackContext context)
     {

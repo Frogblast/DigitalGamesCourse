@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Sprint",
+                    "name": "Walking",
                     "type": "Button",
                     "id": "bde71b41-b444-4ec6-a277-24a443da5f63",
                     "expectedControlType": "Button",
@@ -210,7 +210,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sprint",
+                    "action": "Walking",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

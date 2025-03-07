@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageNrValue: 35
   hitSound: {fileID: 4519901477478977027}
-  speed: 5
+  speed: 6
   lifetimeSeconds: 5
 --- !u!82 &4519901477478977027
 AudioSource:

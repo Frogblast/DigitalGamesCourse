@@ -19444,6 +19444,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2894669315007097023, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: walkSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894669315007097023, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: walkingMultiplier
       value: 0.4
       objectReference: {fileID: 0}

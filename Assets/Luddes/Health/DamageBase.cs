@@ -10,10 +10,6 @@ public class DamageBase : MonoBehaviour, ITrapDamage // The base superclass for 
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Character");
-        if (player == null)
-        {
-            Debug.LogError("Player with tag 'Character' not found!");
-        }
         playerhealth = player.GetComponent<PlayerHealth>();
     }
 
@@ -21,6 +17,12 @@ public class DamageBase : MonoBehaviour, ITrapDamage // The base superclass for 
     {
         if (obj.CompareTag("Character")) // Makes sure there is a player to apply damage to
         {
+            if (playerhealth == null) // Incase something went wrong with the awake() method
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Character");
+                playerhealth = player.GetComponent<PlayerHealth>();
+            }
+
             playerhealth.TakeDamage(damageNr);
         }
     }

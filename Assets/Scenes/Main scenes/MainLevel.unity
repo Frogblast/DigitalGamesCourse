@@ -21624,6 +21624,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 1520174671353763646, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520174671353763646, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: pickupText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520174671353763646, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+      propertyPath: inventoryscript
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1688148224716999743, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -21702,6 +21714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4732984758222981662, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+    - {fileID: 1520174671353763646, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

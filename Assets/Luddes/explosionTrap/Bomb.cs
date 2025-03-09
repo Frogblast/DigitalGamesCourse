@@ -21,7 +21,6 @@ public class Bomb : DamageBase
     public float knockDuration = 1f; // Time in seconds the player is knocked
 
     private float countdown;
-    private bool isKnockedBack = false;
     public override int damageNr => damage;
 
 

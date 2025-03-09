@@ -1741,7 +1741,7 @@ PrefabInstance:
       objectReference: {fileID: 906984246}
     - target: {fileID: 2918221721902228969, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
       propertyPath: animationDuration
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3818280902109734323, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
       propertyPath: m_Size.x
@@ -21650,7 +21650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894669315007097023, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: walkSpeed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2894669315007097023, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
       propertyPath: walkingMultiplier

@@ -995,8 +995,8 @@ Transform:
   m_GameObject: {fileID: 1540526761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalPosition: {x: 6.2123, y: -0, z: 8.5549}
+  m_LocalScale: {x: 32.424, y: 1, z: 37.11}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1091,6 +1091,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4732984758222981662, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+    - {fileID: 1520174671353763646, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
+    - {fileID: 1649326072904014852, guid: 7252b9902f3b4384498aa5e46907bf75, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1357,6 +1359,7 @@ MonoBehaviour:
   - {fileID: 33522541}
   inventoryscript: {fileID: 671194778}
   toolbar: {fileID: 33522540}
+  audiomanager: {fileID: 0}
 --- !u!114 &1896338143
 MonoBehaviour:
   m_ObjectHideFlags: 0

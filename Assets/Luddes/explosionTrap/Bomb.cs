@@ -87,6 +87,9 @@ public class Bomb : DamageBase
                 ApplyDamage(nearbyObject.gameObject); // If the player is inside the explosion, apply damage
 
                 yield return new WaitForSeconds(knockDuration); // Duration until player regains controll
+                
+                
+                movescript.SetPosition(rb.position); // Updates the new position
                 DisableMove(false); // Player regains controll
 
                 break; // because we found the player

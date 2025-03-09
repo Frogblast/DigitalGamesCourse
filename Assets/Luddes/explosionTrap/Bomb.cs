@@ -89,6 +89,7 @@ public class Bomb : DamageBase
                 rb.AddExplosionForce(force, transform.position, radius); // Knockback force applied to player
 
                 ApplyDamage(nearbyObject.gameObject); // If the player is inside the explosion, apply damage
+                audiomanager.Play("PlayerhurtSound");
 
                 yield return new WaitForSeconds(knockDuration); // Duration until player regains controll
                 

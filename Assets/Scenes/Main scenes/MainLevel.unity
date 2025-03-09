@@ -44382,7 +44382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: sounds.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: sounds.Array.data[3].clip
@@ -44401,6 +44401,14 @@ PrefabInstance:
       value: TripwireExplosion
       objectReference: {fileID: 0}
     - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 884a3b438b3181b4fa0409ddee0ee3c0, type: 3}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: PlayerhurtSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: sounds.Array.data[3].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -44409,11 +44417,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: sounds.Array.data[3].volume
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: sounds.Array.data[4].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[5].volume
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8645532650125809519, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}

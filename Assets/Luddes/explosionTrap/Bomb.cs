@@ -8,7 +8,10 @@ public class Bomb : DamageBase
 {
     [SerializeField] private TripwireTrigger tripwire;
     [SerializeField] private GameObject explosionEffect;
-    [SerializeField] private KinematicCharacterMotor movescript;
+
+    private AudioManager audiomanager => AudioManager.Instance;
+
+    private KinematicCharacterMotor movescript;
 
     [Header("Bomb settings")]
     public int damage = 40; // The explosion damage on the player (or anything with health)
@@ -68,7 +71,8 @@ public class Bomb : DamageBase
 
     IEnumerator Explode() // Handles the explosion
     {
-        Instantiate(explosionEffect,transform.position, transform.rotation); // Spawns a explosion particle effect 
+        Instantiate(explosionEffect,transform.position, transform.rotation); // Spawns a explosion particle effect
+        audiomanager.Play("TripwireExplosion");
 
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius); // A list of every collider within a sphere (explosion radius)

@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 7197090889540165388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.26, y: 1.15, z: 3.88}
-  m_LocalScale: {x: 3, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: -6, y: 1.15, z: 3.75}
+  m_LocalScale: {x: 3.4509, y: 0.011503, z: 0.011503}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4658065162152261998}
@@ -136,27 +136,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0016666666
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -0.5071
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalRotation.w
@@ -185,6 +185,10 @@ PrefabInstance:
     - target: {fileID: 779577541911125453, guid: 6566c249da60191489e7335614fe0c12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046327316413338552, guid: 6566c249da60191489e7335614fe0c12, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -218,9 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tripwire: {fileID: 2237511009158612155}
   explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
-  movescript: {fileID: 0}
   damage: 40
-  force: 650
-  delay: 0.3
+  force: 250
+  delay: 0.15
   radius: 5
-  knockDuration: 1.5
+  knockDuration: 1.25

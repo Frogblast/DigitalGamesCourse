@@ -89,16 +89,6 @@ public class PlayerInventoryScript : MonoBehaviour
 
     }
 
-
-    /*private void OnTriggerEnter(Collider other)
-    { 
-        IInventoryItem item = other.GetComponent<IInventoryItem>();
-        if (item != null)
-        {
-            inventoryscript.AddItem(item);
-        }
-    }*/
-
     public void OnPickUp(InputAction.CallbackContext context) // Pick up object on "E"
     {
         rayItemPickup();

@@ -98,6 +98,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""b20a3b61-83b3-4d73-b8d4-8f96b77b0358"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -254,6 +263,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleColorblindFilter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebb64027-b2d0-45ce-b06b-1c1c1d8eb028"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -270,6 +290,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Gameplay_Drop = m_Gameplay.FindAction("Drop", throwIfNotFound: true);
         m_Gameplay_SelectSlot = m_Gameplay.FindAction("SelectSlot", throwIfNotFound: true);
         m_Gameplay_ToggleColorblindFilter = m_Gameplay.FindAction("ToggleColorblindFilter", throwIfNotFound: true);
+        m_Gameplay_OpenMenu = m_Gameplay.FindAction("OpenMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +360,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Drop;
     private readonly InputAction m_Gameplay_SelectSlot;
     private readonly InputAction m_Gameplay_ToggleColorblindFilter;
+    private readonly InputAction m_Gameplay_OpenMenu;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -351,6 +373,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Drop => m_Wrapper.m_Gameplay_Drop;
         public InputAction @SelectSlot => m_Wrapper.m_Gameplay_SelectSlot;
         public InputAction @ToggleColorblindFilter => m_Wrapper.m_Gameplay_ToggleColorblindFilter;
+        public InputAction @OpenMenu => m_Wrapper.m_Gameplay_OpenMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -384,6 +407,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ToggleColorblindFilter.started += instance.OnToggleColorblindFilter;
             @ToggleColorblindFilter.performed += instance.OnToggleColorblindFilter;
             @ToggleColorblindFilter.canceled += instance.OnToggleColorblindFilter;
+            @OpenMenu.started += instance.OnOpenMenu;
+            @OpenMenu.performed += instance.OnOpenMenu;
+            @OpenMenu.canceled += instance.OnOpenMenu;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -412,6 +438,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ToggleColorblindFilter.started -= instance.OnToggleColorblindFilter;
             @ToggleColorblindFilter.performed -= instance.OnToggleColorblindFilter;
             @ToggleColorblindFilter.canceled -= instance.OnToggleColorblindFilter;
+            @OpenMenu.started -= instance.OnOpenMenu;
+            @OpenMenu.performed -= instance.OnOpenMenu;
+            @OpenMenu.canceled -= instance.OnOpenMenu;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -439,5 +468,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnDrop(InputAction.CallbackContext context);
         void OnSelectSlot(InputAction.CallbackContext context);
         void OnToggleColorblindFilter(InputAction.CallbackContext context);
+        void OnOpenMenu(InputAction.CallbackContext context);
     }
 }

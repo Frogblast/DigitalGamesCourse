@@ -76,15 +76,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "OpenMenu",
-                    "type": "Button",
-                    "id": "b20a3b61-83b3-4d73-b8d4-8f96b77b0358",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -239,17 +230,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleColorblindFilter",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ebb64027-b2d0-45ce-b06b-1c1c1d8eb028",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

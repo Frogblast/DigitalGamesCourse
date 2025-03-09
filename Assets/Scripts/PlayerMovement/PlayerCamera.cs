@@ -10,7 +10,7 @@ public struct CameraInput
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] public float sensitivity = 0.1f;
+    [SerializeField] private float sensitivity = 0.1f;
     public Vector3 _eulerAngles;
 
     internal void Initialize(Transform target)

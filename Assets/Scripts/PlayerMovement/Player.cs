@@ -1,7 +1,5 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
@@ -10,8 +8,6 @@ public class Player : MonoBehaviour
    // [SerializeField] private FelixInventory playerInventory;
     [Space]
     [SerializeField] private CameraSpring cameraSpring;
-
-    [SerializeField] private SettingsManager settingsUI;
 
     private PlayerInputActions _inputActions;
     
@@ -58,11 +54,6 @@ public class Player : MonoBehaviour
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(deltaTime);
 
-        // deal with settings input
-        var settingsInput = new SettingsInput { OpenSettings = input.OpenMenu.WasPerformedThisFrame() };
-        settingsUI.UpdateUI(settingsInput);
-
-
         // this is stupid (vad betyder den här kommentaren???)
         int selectedSlot = -1;
         if (input.SelectSlot.WasPerformedThisFrame())
@@ -105,8 +96,6 @@ public class Player : MonoBehaviour
         handler.EnableColorBlindMode();
         handler.ChangeMode();
     }
-
-
 
     public void Walk(InputAction.CallbackContext context)
     {

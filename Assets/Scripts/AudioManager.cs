@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Makes sure the gameobject stays between levels
         }
         else
         {
@@ -22,8 +21,10 @@ public class AudioManager : MonoBehaviour
             return; // Prevent any more code from running in awake
         }
 
+        DontDestroyOnLoad(gameObject); // Makes sure the gameobject stays between levels
 
-        foreach(Sound s in sounds)
+
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>(); // Adds an audiosource to the gameobject and also connects the variable "source" with the added audiosource
             // Populates the new audiosource with the clip,volume,pitch,etc from the element s in sounds

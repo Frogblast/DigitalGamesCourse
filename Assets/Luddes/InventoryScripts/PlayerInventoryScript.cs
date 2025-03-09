@@ -16,7 +16,8 @@ public class PlayerInventoryScript : MonoBehaviour
 
     [SerializeField] private InventoryScript inventoryscript; // For inventory logic
     [SerializeField] private HUD toolbar; // For UI
-    [SerializeField] private AudioManager audiomanager;
+
+    private AudioManager audiomanager => AudioManager.Instance;
 
 
     public void OnHotbar_1(InputAction.CallbackContext context)

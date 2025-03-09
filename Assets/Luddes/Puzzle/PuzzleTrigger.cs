@@ -11,7 +11,7 @@ public class PuzzleTrigger : MonoBehaviour
     [SerializeField] private float rotationtimer = 0.1f;
     [SerializeField] private float puzzletimer = 0.3f;
 
-    [SerializeField] private AudioManager audiomanager;
+    private AudioManager audiomanager => AudioManager.Instance;
 
     public Camera mainCamera;
     public Camera secondaryCamera;

@@ -100,6 +100,7 @@ public class PuzzleTrigger : MonoBehaviour
         float elapsedTime = 0;
         Vector3 startPos = gate.transform.position;
 
+        audiomanager.Play("OpenGate");
         while (elapsedTime < animationDuration)
         { 
             gate.transform.position = Vector3.Lerp (startPos, targetPos, elapsedTime/animationDuration);

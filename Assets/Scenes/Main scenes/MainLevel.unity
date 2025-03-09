@@ -1739,6 +1739,10 @@ PrefabInstance:
       propertyPath: secondaryCamera
       value: 
       objectReference: {fileID: 906984246}
+    - target: {fileID: 2918221721902228969, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
+      propertyPath: animationDuration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3818280902109734323, guid: fcd8e9723d6bc59449e4a5e07fcba96b, type: 3}
       propertyPath: m_Size.x
       value: 1.4
@@ -42222,7 +42226,6 @@ MonoBehaviour:
   - {fileID: 527056829}
   inventoryscript: {fileID: 2025636171}
   toolbar: {fileID: 527056834}
-  audiomanager: {fileID: 258240802}
 --- !u!1001 &2072054833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44271,6 +44274,26 @@ PrefabInstance:
     - target: {fileID: 4661797149698561129, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5647c2bedd3700c49a8eec93c58b5ab4, type: 3}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: OpenGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715748984397789176, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8645532650125809519, guid: cb42d81c53f675a488417fa6a7a305b0, type: 3}
       propertyPath: m_Name

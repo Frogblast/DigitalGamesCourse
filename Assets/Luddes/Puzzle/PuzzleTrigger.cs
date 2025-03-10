@@ -8,6 +8,11 @@ public class PuzzleTrigger : MonoBehaviour
     public CustomTrigger keyTrigger;
     public CustomTrigger GoldBarTrigger;
 
+    [SerializeField] private float rotationtimer = 0.1f;
+    [SerializeField] private float puzzletimer = 0.3f;
+
+    private AudioManager audiomanager => AudioManager.Instance;
+
     public Camera mainCamera;
     public Camera secondaryCamera;
     public GameObject gate;
@@ -31,44 +36,45 @@ public class PuzzleTrigger : MonoBehaviour
     void rotateKeyStatue() // Rotates the statue to indicate a correct choice
     {
         keyStatue.transform.eulerAngles = new Vector3(0, 0, -90);
+        audiomanager.Play("RotateStatueSound"); // Sound
     }
 
     void RotateGoldStatue()
     {
         goldStaute.transform.eulerAngles = new Vector3(0, 0, -90);
+        audiomanager.Play("RotateStatueSound"); // Sound
     }
+
 
 
     void OnKeyTriggerEntered(Collider collider)
     {
         if (collider.tag == "Key")
         {
-            isKeyPlaced = true;
 
-            rotateKeyStatue(); 
-            puzzleSolved();
+            if (!isKeyPlaced) // Allows contents to only run once
+            {
+                Invoke("rotateKeyStatue",rotationtimer);
+
+                Invoke("puzzleSolved", puzzletimer);
+            }
+            isKeyPlaced = true;
         }
     }
 
     void OnGoldbarTriggerEntered(Collider collider)
     {
         if (collider.tag == "GoldBar")
-        { 
-            isGoldbarPlaced = true;
+        {
+            if (!isGoldbarPlaced)
+            {
+                Invoke("RotateGoldStatue",rotationtimer);
 
-            RotateGoldStatue();
-            puzzleSolved(); // Begin animation if puzzle is solved
+                Invoke("puzzleSolved", puzzletimer); // Begin animation if puzzle is solved
+            }
+            isGoldbarPlaced = true;
         }
     }
-
-    /*private void Update()
-    {
-        if (isKeyPlaced == true && isGoldbarPlaced == true)
-        {
-            StartCoroutine(HandleUnlock());
-            
-        }
-    }*/
 
     void puzzleSolved() // If puzzle is solved, this starts the animation
     {
@@ -94,6 +100,7 @@ public class PuzzleTrigger : MonoBehaviour
         float elapsedTime = 0;
         Vector3 startPos = gate.transform.position;
 
+        audiomanager.Play("OpenGate");
         while (elapsedTime < animationDuration)
         { 
             gate.transform.position = Vector3.Lerp (startPos, targetPos, elapsedTime/animationDuration);

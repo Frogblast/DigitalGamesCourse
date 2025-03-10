@@ -17,6 +17,8 @@ public class PlayerInventoryScript : MonoBehaviour
     [SerializeField] private InventoryScript inventoryscript; // For inventory logic
     [SerializeField] private HUD toolbar; // For UI
 
+    private AudioManager audiomanager => AudioManager.Instance;
+
 
     public void OnHotbar_1(InputAction.CallbackContext context)
     {
@@ -88,16 +90,6 @@ public class PlayerInventoryScript : MonoBehaviour
 
     }
 
-
-    /*private void OnTriggerEnter(Collider other)
-    { 
-        IInventoryItem item = other.GetComponent<IInventoryItem>();
-        if (item != null)
-        {
-            inventoryscript.AddItem(item);
-        }
-    }*/
-
     public void OnPickUp(InputAction.CallbackContext context) // Pick up object on "E"
     {
         rayItemPickup();
@@ -120,6 +112,7 @@ public class PlayerInventoryScript : MonoBehaviour
             {
                 inventoryscript.AddItem(item);
                 pickupText.SetActive(false);
+                audiomanager.Play("PickupSound");
             }
 
         }
@@ -131,7 +124,6 @@ public class PlayerInventoryScript : MonoBehaviour
     {
         Vector3 rpos = Camera.main.transform.position;
         Vector3 rdir = Camera.main.transform.forward;
-        RaycastHit hit = new RaycastHit();
         Ray ray = new Ray(rpos, rdir);
 
         Debug.DrawRay(rpos, rdir * distance, Color.yellow, 0.1f);

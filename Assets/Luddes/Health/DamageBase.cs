@@ -7,7 +7,7 @@ public class DamageBase : MonoBehaviour, ITrapDamage // The base superclass for 
 
     public virtual int damageNr => 0; // The damage from trap Can be overwritten in subclass
 
-    private void Start()
+    private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Character");
         playerhealth = player.GetComponent<PlayerHealth>();
@@ -16,7 +16,13 @@ public class DamageBase : MonoBehaviour, ITrapDamage // The base superclass for 
     public virtual void ApplyDamage(GameObject obj)
     {
         if (obj.CompareTag("Character")) // Makes sure there is a player to apply damage to
-        { 
+        {
+            if (playerhealth == null) // Incase something went wrong with the awake() method
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Character");
+                playerhealth = player.GetComponent<PlayerHealth>();
+            }
+
             playerhealth.TakeDamage(damageNr);
         }
     }

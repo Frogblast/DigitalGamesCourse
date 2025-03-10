@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2464149175866412288}
   - component: {fileID: 7846879740504959962}
+  - component: {fileID: 3324683996767044112}
   m_Layer: 0
   m_Name: Felix Player
   m_TagString: Character
@@ -83,6 +84,193 @@ MonoBehaviour:
   playerCharacter: {fileID: 2894669315007097023}
   playerCamera: {fileID: 690514986948943924}
   cameraSpring: {fileID: 9147398898417280579}
+  settingsUI: {fileID: 0}
+--- !u!114 &3324683996767044112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088117885541132731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d0d95b880e18fde489ddcaab176a8362, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42083738-f0d8-4149-9112-8cc6df9af10b
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 26741031-9355-4722-9461-79d891e4196b
+    m_ActionName: Player/PickUp[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 86321038-ddd0-46ae-b6c3-38da21e5c61e
+    m_ActionName: Player/Drop[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 21c4fc2d-4ec7-455b-9180-978f68d76410
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7846879740504959962}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Walk
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bde71b41-b444-4ec6-a277-24a443da5f63
+    m_ActionName: Player/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7846879740504959962}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ToggleColorBlindMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a4449c31-c4ef-4aac-8a96-5aa969f2e536
+    m_ActionName: Player/ActivateColorBlindMode[/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnHotbar_1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4a4c58cf-da27-41b3-9b0a-ff19c2030b10
+    m_ActionName: Player/Hotbar_1[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnHotbar_2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fd7abc76-0a43-427c-8749-f5d985d07aa3
+    m_ActionName: Player/Hotbar_2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnHotbar_3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 78ff7678-b7e3-4737-82c2-70e74cd86f07
+    m_ActionName: Player/Hotbar_3[/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnHotbar_4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 022aa732-c278-4045-8744-660ccefea3f9
+    m_ActionName: Player/Hotbar_4[/Keyboard/4]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnHotbar_5
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a3d57abc-4148-4169-bd04-5c295e64f17e
+    m_ActionName: Player/Hotbar_5[/Keyboard/5]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520174671353763646}
+        m_TargetAssemblyTypeName: PlayerInventoryScript, Assembly-CSharp
+        m_MethodName: OnDropItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3b4a17b9-5815-4621-abfb-54880cc243e6
+    m_ActionName: Player/DropItem[/Keyboard/q]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1688148224716999743
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4966228784733132437
 RectTransform:
   m_ObjectHideFlags: 0
@@ -212,6 +400,9 @@ GameObject:
   - component: {fileID: 2957468035830048478}
   - component: {fileID: 3385008942693779555}
   - component: {fileID: 8246393142120852182}
+  - component: {fileID: 4095202743893243344}
+  - component: {fileID: 1209222854628314951}
+  - component: {fileID: 39236057163794824}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -243,8 +434,8 @@ Camera:
   m_GameObject: {fileID: 1832168453367266077}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -293,6 +484,92 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832168453367266077}
   m_Enabled: 1
+--- !u!114 &4095202743893243344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832168453367266077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa26b0231c812794e959311b2110ee3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1209222854628314951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832168453367266077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae42c8f78c60684aab6be6c18bd7a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  colorblindShader: {fileID: 4800000, guid: b35b8f7ae8cf168488129d5f5f39ebf4, type: 3}
+--- !u!114 &39236057163794824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832168453367266077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 2957468035830048478}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &1861678648515605033
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +583,8 @@ GameObject:
   - component: {fileID: 5248913525874621552}
   - component: {fileID: 2894669315007097023}
   - component: {fileID: 3495018581762325245}
-  - component: {fileID: 4732984758222981662}
+  - component: {fileID: 1520174671353763646}
+  - component: {fileID: 216314794616606576}
   m_Layer: 0
   m_Name: Character
   m_TagString: Character
@@ -411,16 +689,16 @@ MonoBehaviour:
   motor: {fileID: 5248913525874621552}
   root: {fileID: 4203166748406903430}
   cameraTarget: {fileID: 1359397232296957682}
-  walkSpeed: 10
+  walkSpeed: 8
   crouchSpeed: 5
   walkResponse: 12.5
   crouchResponse: 10
-  airSpeed: 10
-  airAcceleration: 35
-  jumpSpeed: 14
+  airSpeed: 8
+  airAcceleration: 30
+  jumpSpeed: 12
   coyoteTime: 0.2
-  jumpSustainGravity: 0.6
-  gravity: -90
+  jumpSustainGravity: 0.7
+  gravity: -70
   standHeight: 2
   crouchHeight: 1
   crouchHeightResponse: 15
@@ -428,7 +706,7 @@ MonoBehaviour:
   crouchCameraTargetHeight: 0.667
   playerAudio: {fileID: 6366799578855067306}
   walking: 0
-  walkingMultiplier: 0.5
+  walkingMultiplier: 0.4
 --- !u!54 &3495018581762325245
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -437,7 +715,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861678648515605033}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -456,7 +734,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4732984758222981662
+--- !u!114 &1520174671353763646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861678648515605033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7c9ab1daae5184dab2961272c10268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupText: {fileID: 0}
+  hotbarslots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventoryscript: {fileID: 0}
+  toolbar: {fileID: 0}
+--- !u!114 &216314794616606576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

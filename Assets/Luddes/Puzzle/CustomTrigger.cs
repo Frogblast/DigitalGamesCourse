@@ -9,7 +9,7 @@ public class CustomTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        EnteredTrigger?.Invoke(collider);
+            EnteredTrigger?.Invoke(collider);
     }
 
 }

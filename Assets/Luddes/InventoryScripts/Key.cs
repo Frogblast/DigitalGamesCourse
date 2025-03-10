@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Key : MonoBehaviour, IInventoryItem
 {
-    [SerializeField] private float offset = 2f;
     private Vector3 spwn_position;
     private Quaternion spwn_rotation;
 
@@ -56,13 +55,6 @@ public class Key : MonoBehaviour, IInventoryItem
     public void OnDrop()
     {
         GameObject camera = GameObject.Find("Camera");
-        /*Vector3 dropPosition = camera.transform.position + camera.transform.forward * offset;
-        if (dropPosition.y < 0.5f) // If player is looking at the ground while dropping, this makes sure the object spawns on the ground
-        {
-            dropPosition = new Vector3(dropPosition.x, 1f, dropPosition.z);
-        }
-        transform.position = dropPosition;
-        gameObject.SetActive(true);*/
 
         Vector3 rpos = camera.transform.position;
         Vector3 rdir = camera.transform.forward;

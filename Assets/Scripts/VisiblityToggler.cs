@@ -9,7 +9,7 @@ public class VisiblityToggler : MonoBehaviour
         if (collision.collider.CompareTag("Character"))
         {
 
-        Debug.Log("collided");
+        //Debug.Log("collided");
         this.GetComponent<MeshRenderer>().enabled = true;
         }
     }

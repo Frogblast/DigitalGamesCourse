@@ -8,6 +8,7 @@ public class BoulderTrigger : MonoBehaviour
     public GameObject boulder;
     public AudioSource boulderAudio;
     public bool audioPlayed = false;
+    private bool hastriggered = false;
 
     private void Start()
     {
@@ -19,17 +20,23 @@ public class BoulderTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Character"))
         {
-            MeshCollider meshCollider = targetObject.GetComponent<MeshCollider>();
-            if (meshCollider != null)
+            if (!hastriggered)
             {
-                meshCollider.enabled = false;
+                hastriggered=true;
+                MeshCollider meshCollider = targetObject.GetComponent<MeshCollider>();
+                if (meshCollider != null)
+                {
+                    meshCollider.enabled = false;
+                }
+                if (!audioPlayed && boulderAudio != null)
+                {
+                    boulderAudio.Play();
+                    audioPlayed = true;
+                }
             }
-            if (!audioPlayed && boulderAudio != null) {
-                boulderAudio.Play();
-                audioPlayed = true;
-             }
         }
     }
 }
